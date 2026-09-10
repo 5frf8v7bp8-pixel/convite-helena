@@ -1,388 +1,442 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Helena — 1 Aninho 🍓</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <title>Convite da Helena 🍓</title>
 
-html {
-    scroll-behavior: smooth;
-}
+    <style>
 
-body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #fff4f5;
-    color: #6d3038;
-    overflow-x: hidden;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* =========================
-   CAPA
-========================= */
+        html {
+            scroll-behavior: smooth;
+        }
 
-.abertura {
-    min-height: 100vh;
-    position: relative;
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #fff5f3;
+            color: #6b3030;
+        }
 
-    background:
-        linear-gradient(
-            rgba(255, 244, 245, 0.30),
-            rgba(255, 244, 245, 0.30)
-        ),
-        url('a_cute_pastel_vintage_illustration_style_children.png')
-        center center / cover no-repeat;
+        /* =========================
+           CAPA
+        ========================= */
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+        .abertura {
+            min-height: 100vh;
 
-    padding: 40px 22px 55px;
-    text-align: center;
-}
+            position: relative;
 
-/* camada suave para destacar o conteúdo */
-.abertura::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.05),
-        rgba(255,244,245,0.15),
-        rgba(255,244,245,0.65)
-    );
-    pointer-events: none;
-}
+            background-image:
+                linear-gradient(
+                    rgba(255, 244, 245, 0.18),
+                    rgba(255, 244, 245, 0.35)
+                ),
+                url("IMG_3506.jpeg");
 
-/* conteúdo da capa */
-.conteudo-capa {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 390px;
-}
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
 
-/* morango */
-.morango {
-    font-size: 42px;
-    margin-bottom: 8px;
-    animation: flutuar 3s ease-in-out infinite;
-}
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
 
-/* título */
-h1 {
-    font-size: 48px;
-    color: #b52f43;
-    line-height: 1;
-    text-shadow: 1px 2px 0 rgba(255,255,255,0.8);
-    margin-bottom: 8px;
-}
+            padding: 40px 22px 55px;
 
-/* subtítulo */
-.subtitulo {
-    font-size: 20px;
-    color: #78343c;
-    line-height: 1.4;
-    margin-bottom: 24px;
-    font-style: italic;
-}
+            text-align: center;
+        }
 
-/* botão */
-.botao {
-    display: inline-block;
-    background: #c93650;
-    color: white;
-    text-decoration: none;
-    padding: 15px 32px;
-    border-radius: 40px;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 5px 14px rgba(150, 40, 60, 0.25);
-    transition: transform 0.2s ease;
-}
+        .abertura::before {
+            content: "";
 
-.botao:active {
-    transform: scale(0.96);
-}
+            position: absolute;
+            inset: 0;
 
-/* =========================
-   SEÇÕES
-========================= */
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,245,243,0.08),
+                rgba(255,245,243,0.65)
+            );
 
-section:not(.abertura) {
-    min-height: 100vh;
-    padding: 55px 22px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+            pointer-events: none;
+        }
 
-/* vídeo */
-.video {
-    background: #fff8f5;
-}
+        .conteudo-capa {
+            position: relative;
+            z-index: 2;
 
-.video video {
-    width: 100%;
-    max-width: 430px;
-    border-radius: 25px;
-    box-shadow: 0 8px 25px rgba(120, 50, 60, 0.18);
-}
+            width: 100%;
+            max-width: 400px;
+        }
 
-/* mensagem */
-.mensagem {
-    background: #fff0f2;
-}
+        .morango {
+            font-size: 45px;
+            margin-bottom: 5px;
+        }
 
-.mensagem h2,
-.data h2,
-.local h2,
-.confirmacao h2 {
-    color: #b52f43;
-    font-size: 32px;
-    margin-bottom: 18px;
-}
+        h1 {
+            font-size: 48px;
+            letter-spacing: 4px;
+            color: #c73545;
 
-.mensagem p {
-    max-width: 380px;
-    font-size: 19px;
-    line-height: 1.6;
-}
+            text-shadow:
+                1px 1px 0 white,
+                -1px -1px 0 white;
+        }
 
-.foto-placeholder {
-    width: 100%;
-    max-width: 320px;
-    height: 330px;
-    border-radius: 25px;
-    background: #f8d9de;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    color: #9b5360;
-    font-size: 18px;
-}
+        .subtitulo {
+            margin-top: 8px;
 
-/* data */
-.data {
-    background: #fff8f5;
-}
+            font-size: 22px;
+            line-height: 1.35;
 
-.data-box {
-    background: white;
-    padding: 30px 35px;
-    border-radius: 25px;
-    box-shadow: 0 7px 22px rgba(120, 50, 60, 0.12);
-}
+            color: #713737;
+        }
 
-.data-principal {
-    font-size: 38px;
-    color: #b52f43;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+        .subtitulo strong {
+            color: #c73545;
+            font-size: 29px;
+        }
 
-.hora {
-    font-size: 21px;
-}
+        .botao {
+            display: inline-block;
 
-/* localização */
-.local {
-    background: #fff0f2;
-}
+            margin-top: 25px;
 
-.local p {
-    font-size: 18px;
-    line-height: 1.5;
-    max-width: 350px;
-    margin-bottom: 22px;
-}
+            padding: 15px 28px;
 
-/* confirmação */
-.confirmacao {
-    background: #fff8f5;
-}
+            background: #c73545;
+            color: white;
 
-.confirmacao p {
-    font-size: 18px;
-    margin-bottom: 25px;
-    max-width: 350px;
-    line-height: 1.5;
-}
+            text-decoration: none;
 
-/* animação */
-@keyframes flutuar {
-    0%, 100% {
-        transform: translateY(0);
-    }
+            border-radius: 30px;
 
-    50% {
-        transform: translateY(-7px);
-    }
-}
+            font-size: 16px;
+            font-weight: bold;
 
-/* celular pequeno */
-@media (max-width: 380px) {
+            box-shadow: 0 5px 15px rgba(120, 40, 40, 0.25);
 
-    h1 {
-        font-size: 42px;
-    }
+            transition: transform 0.2s;
+        }
 
-    .subtitulo {
-        font-size: 18px;
-    }
+        .botao:active {
+            transform: scale(0.96);
+        }
 
-    .abertura {
-        padding-bottom: 40px;
-    }
-}
-</style>
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section:not(.abertura) {
+            padding: 55px 25px;
+            text-align: center;
+        }
+
+        .video {
+            background: #fff;
+        }
+
+        .video video {
+            width: 100%;
+            max-width: 500px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 8px 25px rgba(100, 50, 50, 0.15);
+        }
+
+        .mensagem {
+            background: #fff5f3;
+        }
+
+        .mensagem h2,
+        .data h2,
+        .local h2,
+        .confirmacao h2 {
+            color: #c73545;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .mensagem p {
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FOTO
+        ========================= */
+
+        .foto-placeholder {
+            width: 100%;
+            max-width: 320px;
+
+            height: 300px;
+
+            margin: 0 auto 25px;
+
+            background: #f8dfe0;
+
+            border-radius: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #a35b5b;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           DATA
+        ========================= */
+
+        .data {
+            background: #fff;
+        }
+
+        .numero {
+            font-size: 42px;
+            color: #c73545;
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+        .horario {
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           LOCAL
+        ========================= */
+
+        .local {
+            background: #fff5f3;
+        }
+
+        .local p {
+            font-size: 18px;
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           CONFIRMAÇÃO
+        ========================= */
+
+        .confirmacao {
+            background: #c73545;
+            color: white;
+        }
+
+        .confirmacao h2 {
+            color: white;
+        }
+
+        .confirmacao p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .botao-branco {
+            display: inline-block;
+
+            background: white;
+            color: #c73545;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            padding: 25px;
+
+            text-align: center;
+
+            background: #fff5f3;
+
+            color: #9b6666;
+
+            font-size: 14px;
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<!-- =========================
-     CAPA
-========================= -->
 
-<section class="abertura">
+    <!-- =========================
+         CAPA
+    ========================= -->
 
-    <div class="conteudo-capa">
+    <section class="abertura">
 
-        <div class="morango">🍓</div>
+        <div class="conteudo-capa">
 
-        <h1>HELENA</h1>
+            <div class="morango">🍓</div>
 
-        <p class="subtitulo">
-            está completando<br>
-            <strong>1 aninho!</strong>
+            <h1>HELENA</h1>
+
+            <p class="subtitulo">
+                está completando<br>
+                <strong>1 aninho!</strong>
+            </p>
+
+            <a href="#video" class="botao">
+                ABRIR CONVITE 🍓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VÍDEO
+    ========================= -->
+
+    <section class="video" id="video">
+
+        <video controls playsinline>
+
+            <source
+                src="gemini_generated_video_56A4EB17.mp4"
+                type="video/mp4">
+
+            Seu navegador não consegue reproduzir este vídeo.
+
+        </video>
+
+    </section>
+
+
+    <!-- =========================
+         MENSAGEM
+    ========================= -->
+
+    <section class="mensagem">
+
+        <div class="foto-placeholder">
+            FOTO DA HELENA 🍓
+        </div>
+
+        <h2>Um dia muito especial! 💕</h2>
+
+        <p>
+            Você está convidado para comemorar
+            comigo o meu primeiro aninho!
         </p>
 
-        <a href="#video" class="botao">
-            ABRIR CONVITE 🍓
-        </a>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     VÍDEO
-========================= -->
+    <!-- =========================
+         DATA
+    ========================= -->
 
-<section class="video" id="video">
+    <section class="data">
 
-    <video controls playsinline>
-        <source
-            src="gemini_generated_video_56A4EB17.mp4"
-            type="video/mp4">
-        Seu navegador não consegue reproduzir este vídeo.
-    </video>
+        <h2>Reserve a data 🍓</h2>
 
-</section>
-
-
-<!-- =========================
-     MENSAGEM
-========================= -->
-
-<section class="mensagem">
-
-    <div class="foto-placeholder">
-        FOTO DA HELENA
-    </div>
-
-    <h2>Um dia muito especial! 🍓</h2>
-
-    <p>
-        Estamos preparando uma comemoração
-        cheia de carinho para celebrar
-        o primeiro aninho da Helena.
-    </p>
-
-</section>
-
-
-<!-- =========================
-     DATA
-========================= -->
-
-<section class="data">
-
-    <h2>Vamos comemorar!</h2>
-
-    <div class="data-box">
-
-        <div class="data-principal">
+        <div class="numero">
             XX • XX • 2026
         </div>
 
-        <div class="hora">
+        <div class="horario">
             às XX:XX
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     LOCAL
-========================= -->
+    <!-- =========================
+         LOCAL
+    ========================= -->
 
-<section class="local">
+    <section class="local">
 
-    <h2>Onde será? 🍓</h2>
+        <h2>Onde será? 🌸</h2>
 
-    <p>
-        Nome do local<br>
-        Endereço do evento<br>
-        Guarulhos — SP
-    </p>
+        <p>
+            Nome do espaço<br>
+            Rua, número<br>
+            Guarulhos – SP
+        </p>
 
-    <a
-        class="botao"
-        href="https://www.google.com/maps"
-        target="_blank">
-        VER NO MAPA
-    </a>
+        <a
+            class="botao"
+            href="https://www.google.com/maps"
+            target="_blank">
 
-</section>
+            📍 VER NO MAPA
+
+        </a>
+
+    </section>
 
 
-<!-- =========================
-     CONFIRMAÇÃO
-========================= -->
+    <!-- =========================
+         CONFIRMAÇÃO
+    ========================= -->
 
-<section class="confirmacao">
+    <section class="confirmacao">
 
-    <h2>Você vem? 💗</h2>
+        <h2>Confirme sua presença 🍓</h2>
 
-    <p>
-        Confirme sua presença para
-        comemorar esse dia especial
-        com a Helena!
-    </p>
+        <p>
+            Esperamos você para comemorar
+            esse dia tão especial!
+        </p>
 
-    <a
-        class="botao"
-        href="#"
-        target="_blank">
-        CONFIRMAR PRESENÇA
-    </a>
+        <a
+            class="botao-branco"
+            href="#"
+            target="_blank">
 
-</section>
+            💕 CONFIRMAR PRESENÇA
+
+        </a>
+
+    </section>
+
+
+    <footer>
+
+        Feito com carinho para o 1º aninho da Helena 🍓
+
+    </footer>
+
 
 </body>
 </html>
