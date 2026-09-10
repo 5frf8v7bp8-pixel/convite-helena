@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Helena — 1 aninho 🍓</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #fff8f5;
+      color: #5b3030;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 25px;
+    }
+
+    /* ABERTURA */
+    .abertura {
+      position: relative;
+      background: linear-gradient(
+        180deg,
+        #ffe7e5 0%,
+        #fff8f5 100%
+      );
+      flex-direction: column;
+    }
+
+    .morango {
+      font-size: 70px;
+      margin-bottom: 25px;
+      animation: flutuar 3s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 52px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .subtitulo {
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 35px;
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 40px;
+      background: #c94c55;
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+
+    .botao:hover {
+      transform: scale(1.05);
+    }
+
+    /* CONVITE */
+    .convite {
+      background: #fff8f5;
+      flex-direction: column;
+    }
+
+    .foto-placeholder {
+      width: 230px;
+      height: 300px;
+      border-radius: 120px 120px 20px 20px;
+      background: #f3d6d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 35px;
+      font-family: Arial, sans-serif;
+      color: #9a6767;
+    }
+
+    .convite h2 {
+      font-size: 46px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .convite p {
+      max-width: 330px;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    /* DATA */
+    .data {
+      background: #f8ddd8;
+      flex-direction: column;
+    }
+
+    .data h2 {
+      font-size: 18px;
+      letter-spacing: 5px;
+      font-family: Arial, sans-serif;
+      margin-bottom: 30px;
+    }
+
+    .numero {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    /* LOCAL */
+    .local {
+      background: #fff8f5;
+      flex-direction: column;
+    }
+
+    .local h2 {
+      font-size: 38px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .local p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 320px;
+    }
+
+    /* CONFIRMAÇÃO */
+    .confirmacao {
+      background: #ffe7e5;
+      flex-direction: column;
+    }
+
+    .confirmacao h2 {
+      font-size: 38px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .confirmacao p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 30px;
+    }
+
+    /* ANIMAÇÃO */
+    @keyframes flutuar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ABERTURA -->
+  <section class="abertura">
+
+    <div class="morango">🍓</div>
+
+    <h1>Helena</h1>
+
+    <div class="subtitulo">
+      está completando 1 aninho
+    </div>
+
+    <a href="#convite" class="botao">
+      ABRIR CONVITE
+    </a>
+
+  </section>
+
+
+  <!-- CONVITE -->
+  <section class="convite" id="convite">
+
+    <div class="foto-placeholder">
+      FOTO DA HELENA
+    </div>
+
+    <h2>Helena</h2>
+
+    <p>
+      Um ano de amor, sorrisos,
+      descobertas e momentos
+      inesquecíveis.
+    </p>
+
+    <br>
+
+    <p>
+      Venha comemorar esse dia
+      tão especial conosco! 🍓
+    </p>
+
+  </section>
+
+
+  <!-- DATA -->
+  <section class="data">
+
+    <h2>SAVE THE DATE</h2>
+
+    <div class="numero">
+      XX • XX • 2026
+    </div>
+
+    <p>
+      às XX:XX
+    </p>
+
+  </section>
+
+
+  <!-- LOCAL -->
+  <section class="local">
+
+    <h2>Onde será?</h2>
+
+    <p>
+      <strong>NOME DO LOCAL</strong>
+      <br>
+      Endereço da festa
+      <br>
+      Guarulhos — SP
+    </p>
+
+    <a
+      href="https://www.google.com/maps"
+      target="_blank"
+      class="botao">
+      📍 COMO CHEGAR
+    </a>
+
+  </section>
+
+
+  <!-- CONFIRMAÇÃO -->
+  <section class="confirmacao">
+
+    <h2>Você vem?</h2>
+
+    <p>
+      Sua presença vai deixar
+      o primeiro aniversário
+      da Helena ainda mais especial! 💕
+    </p>
+
+    <a
+      href="#"
+      class="botao">
+      CONFIRMAR PRESENÇA
+    </a>
+
+  </section>
+
+</body>
+</html>
