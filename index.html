@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Helena — 1 aninho 🍓</title>
 
   <style>
@@ -33,14 +32,10 @@
       padding: 40px 25px;
     }
 
-    /* ABERTURA */
+    /* CAPA */
     .abertura {
       position: relative;
-      background: linear-gradient(
-        180deg,
-        #ffe7e5 0%,
-        #fff8f5 100%
-      );
+      background: linear-gradient(180deg, #ffe7e5 0%, #fff8f5 100%);
       flex-direction: column;
     }
 
@@ -74,11 +69,22 @@
       font-size: 15px;
       letter-spacing: 1px;
       cursor: pointer;
-      transition: transform .3s;
     }
 
-    .botao:hover {
-      transform: scale(1.05);
+    /* VÍDEO */
+    .video {
+      background: #fff8f5;
+      flex-direction: column;
+      padding: 25px 15px;
+    }
+
+    .video video {
+      width: 100%;
+      max-width: 430px;
+      max-height: 90vh;
+      border-radius: 25px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(120, 50, 50, 0.15);
     }
 
     /* CONVITE */
@@ -112,7 +118,6 @@
       line-height: 1.7;
     }
 
-    /* DATA */
     .data {
       background: #f8ddd8;
       flex-direction: column;
@@ -130,7 +135,6 @@
       margin-bottom: 15px;
     }
 
-    /* LOCAL */
     .local {
       background: #fff8f5;
       flex-direction: column;
@@ -149,7 +153,6 @@
       max-width: 320px;
     }
 
-    /* CONFIRMAÇÃO */
     .confirmacao {
       background: #ffe7e5;
       flex-direction: column;
@@ -168,7 +171,6 @@
       margin-bottom: 30px;
     }
 
-    /* ANIMAÇÃO */
     @keyframes flutuar {
       0%, 100% {
         transform: translateY(0);
@@ -183,9 +185,8 @@
 
 <body>
 
-  <!-- ABERTURA -->
+  <!-- CAPA -->
   <section class="abertura">
-
     <div class="morango">🍓</div>
 
     <h1>Helena</h1>
@@ -194,15 +195,25 @@
       está completando 1 aninho
     </div>
 
-    <a href="#convite" class="botao">
+    <a href="#video" class="botao">
       ABRIR CONVITE
     </a>
+  </section>
+
+
+  <!-- VÍDEO -->
+  <section class="video" id="video">
+
+    <video controls playsinline>
+      <source src="gemini_generated_video_56A4EB17.mp4" type="video/mp4">
+      Seu navegador não consegue reproduzir este vídeo.
+    </video>
 
   </section>
 
 
-  <!-- CONVITE -->
-  <section class="convite" id="convite">
+  <!-- MENSAGEM -->
+  <section class="convite">
 
     <div class="foto-placeholder">
       FOTO DA HELENA
@@ -211,16 +222,15 @@
     <h2>Helena</h2>
 
     <p>
-      Um ano de amor, sorrisos,
-      descobertas e momentos
-      inesquecíveis.
+      Um ano de amor, sorrisos, descobertas
+      e momentos inesquecíveis. 💕
     </p>
 
     <br>
 
     <p>
-      Venha comemorar esse dia
-      tão especial conosco! 🍓
+      Venha comemorar esse dia tão especial
+      conosco! 🍓
     </p>
 
   </section>
@@ -248,10 +258,8 @@
     <h2>Onde será?</h2>
 
     <p>
-      <strong>NOME DO LOCAL</strong>
-      <br>
-      Endereço da festa
-      <br>
+      <strong>NOME DO LOCAL</strong><br>
+      Endereço da festa<br>
       Guarulhos — SP
     </p>
 
@@ -271,14 +279,11 @@
     <h2>Você vem?</h2>
 
     <p>
-      Sua presença vai deixar
-      o primeiro aniversário
+      Sua presença vai deixar o primeiro aniversário
       da Helena ainda mais especial! 💕
     </p>
 
-    <a
-      href="#"
-      class="botao">
+    <a href="#" class="botao">
       CONFIRMAR PRESENÇA
     </a>
 
