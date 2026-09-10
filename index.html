@@ -1,441 +1,490 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Convite da Helena 🍓</title>
+<title>Convite da Helena 🍓</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            background: #fff5f3;
-            color: #6b3030;
-        }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff6f3;
+    color: #713737;
+}
 
-        /* =========================
-           CAPA
-        ========================= */
 
-        .abertura {
-            min-height: 100vh;
+/* =========================
+   CAPA
+========================= */
 
-            position: relative;
+.abertura {
+    min-height: 100vh;
+    position: relative;
 
-            background-image:
-                linear-gradient(
-                    rgba(255, 244, 245, 0.18),
-                    rgba(255, 244, 245, 0.35)
-                ),
-                url("IMG_3506.jpeg");
+    background-image: url("IMG_3506.jpeg");
 
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
-            padding: 40px 22px 55px;
+    padding: 0 20px 55px;
 
-            text-align: center;
-        }
+    text-align: center;
+}
 
-        .abertura::before {
-            content: "";
 
-            position: absolute;
-            inset: 0;
+/* Leve degradê somente na parte inferior */
 
-            background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,0),
-                rgba(255,245,243,0.08),
-                rgba(255,245,243,0.65)
-            );
+.abertura::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-            pointer-events: none;
-        }
+    height: 45%;
 
-        .conteudo-capa {
-            position: relative;
-            z-index: 2;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,246,243,0),
+        rgba(255,246,243,0.78)
+    );
 
-            width: 100%;
-            max-width: 400px;
-        }
+    pointer-events: none;
+}
 
-        .morango {
-            font-size: 45px;
-            margin-bottom: 5px;
-        }
 
-        h1 {
-            font-size: 48px;
-            letter-spacing: 4px;
-            color: #c73545;
+/* Conteúdo da capa */
 
-            text-shadow:
-                1px 1px 0 white,
-                -1px -1px 0 white;
-        }
+.conteudo-capa {
+    position: relative;
+    z-index: 2;
 
-        .subtitulo {
-            margin-top: 8px;
+    width: 100%;
+    max-width: 380px;
 
-            font-size: 22px;
-            line-height: 1.35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-            color: #713737;
-        }
 
-        .subtitulo strong {
-            color: #c73545;
-            font-size: 29px;
-        }
+/* Nome */
 
-        .botao {
-            display: inline-block;
+.conteudo-capa h1 {
+    font-size: 48px;
+    letter-spacing: 4px;
 
-            margin-top: 25px;
+    color: #c73545;
 
-            padding: 15px 28px;
+    margin-bottom: 4px;
 
-            background: #c73545;
-            color: white;
+    text-shadow:
+        1px 1px 0 #fff,
+        -1px -1px 0 #fff,
+        0 2px 5px rgba(90,40,40,0.15);
+}
 
-            text-decoration: none;
 
-            border-radius: 30px;
+/* Texto */
 
-            font-size: 16px;
-            font-weight: bold;
+.subtitulo {
+    font-size: 21px;
+    line-height: 1.3;
 
-            box-shadow: 0 5px 15px rgba(120, 40, 40, 0.25);
+    color: #713737;
 
-            transition: transform 0.2s;
-        }
+    text-shadow:
+        1px 1px 0 white,
+        -1px -1px 0 white;
+}
 
-        .botao:active {
-            transform: scale(0.96);
-        }
+.subtitulo strong {
+    display: block;
 
+    font-size: 29px;
 
-        /* =========================
-           SEÇÕES
-        ========================= */
+    color: #c73545;
 
-        section:not(.abertura) {
-            padding: 55px 25px;
-            text-align: center;
-        }
+    margin-top: 2px;
+}
 
-        .video {
-            background: #fff;
-        }
 
-        .video video {
-            width: 100%;
-            max-width: 500px;
+/* Botão */
 
-            border-radius: 20px;
+.botao {
+    display: inline-block;
 
-            box-shadow: 0 8px 25px rgba(100, 50, 50, 0.15);
-        }
+    margin-top: 22px;
 
-        .mensagem {
-            background: #fff5f3;
-        }
+    padding: 14px 27px;
 
-        .mensagem h2,
-        .data h2,
-        .local h2,
-        .confirmacao h2 {
-            color: #c73545;
+    background: #c73545;
+    color: white;
 
-            font-size: 30px;
+    text-decoration: none;
 
-            margin-bottom: 20px;
-        }
+    border-radius: 30px;
 
-        .mensagem p {
-            font-size: 19px;
-            line-height: 1.6;
-        }
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
 
+    box-shadow:
+        0 5px 15px rgba(100,40,40,0.25);
 
-        /* =========================
-           FOTO
-        ========================= */
+    transition: 0.2s;
+}
 
-        .foto-placeholder {
-            width: 100%;
-            max-width: 320px;
+.botao:active {
+    transform: scale(0.96);
+}
 
-            height: 300px;
 
-            margin: 0 auto 25px;
+/* =========================
+   VÍDEO
+========================= */
 
-            background: #f8dfe0;
+.video {
+    background: #fff;
+    padding: 45px 20px;
 
-            border-radius: 25px;
+    text-align: center;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.video video {
+    width: 100%;
+    max-width: 500px;
 
-            color: #a35b5b;
+    border-radius: 20px;
 
-            font-size: 18px;
-        }
+    box-shadow:
+        0 8px 25px rgba(100,50,50,0.15);
+}
 
 
-        /* =========================
-           DATA
-        ========================= */
+/* =========================
+   MENSAGEM
+========================= */
 
-        .data {
-            background: #fff;
-        }
+.mensagem {
+    padding: 55px 25px;
 
-        .numero {
-            font-size: 42px;
-            color: #c73545;
-            font-weight: bold;
+    background: #fff6f3;
 
-            margin-bottom: 8px;
-        }
+    text-align: center;
+}
 
-        .horario {
-            font-size: 20px;
-        }
+.mensagem h2,
+.data h2,
+.local h2,
+.confirmacao h2 {
+    color: #c73545;
 
+    font-size: 29px;
 
-        /* =========================
-           LOCAL
-        ========================= */
+    margin-bottom: 20px;
+}
 
-        .local {
-            background: #fff5f3;
-        }
+.mensagem p {
+    font-size: 19px;
+    line-height: 1.6;
+}
 
-        .local p {
-            font-size: 18px;
-            line-height: 1.5;
 
-            margin-bottom: 20px;
-        }
+/* =========================
+   FOTO
+========================= */
 
+.foto-placeholder {
+    width: 100%;
+    max-width: 320px;
 
-        /* =========================
-           CONFIRMAÇÃO
-        ========================= */
+    height: 300px;
 
-        .confirmacao {
-            background: #c73545;
-            color: white;
-        }
+    margin: 0 auto 28px;
 
-        .confirmacao h2 {
-            color: white;
-        }
+    background: #f8dfe0;
 
-        .confirmacao p {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
+    border-radius: 25px;
 
-        .botao-branco {
-            display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            background: white;
-            color: #c73545;
+    color: #a35b5b;
 
-            padding: 15px 28px;
+    font-size: 17px;
+}
 
-            border-radius: 30px;
 
-            text-decoration: none;
+/* =========================
+   DATA
+========================= */
 
-            font-weight: bold;
-        }
+.data {
+    padding: 55px 20px;
 
+    background: #fff;
 
-        /* =========================
-           RODAPÉ
-        ========================= */
+    text-align: center;
+}
 
-        footer {
-            padding: 25px;
+.numero {
+    font-size: 38px;
 
-            text-align: center;
+    color: #c73545;
 
-            background: #fff5f3;
+    font-weight: bold;
 
-            color: #9b6666;
+    margin-bottom: 10px;
+}
 
-            font-size: 14px;
-        }
+.horario {
+    font-size: 20px;
+}
 
-    </style>
+
+/* =========================
+   LOCAL
+========================= */
+
+.local {
+    padding: 55px 25px;
+
+    background: #fff6f3;
+
+    text-align: center;
+}
+
+.local p {
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   CONFIRMAÇÃO
+========================= */
+
+.confirmacao {
+    padding: 55px 25px;
+
+    background: #c73545;
+
+    color: white;
+
+    text-align: center;
+}
+
+.confirmacao h2 {
+    color: white;
+}
+
+.confirmacao p {
+    font-size: 18px;
+
+    margin-bottom: 25px;
+}
+
+.botao-branco {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    background: white;
+    color: #c73545;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    padding: 25px;
+
+    background: #fff6f3;
+
+    text-align: center;
+
+    color: #9b6666;
+
+    font-size: 14px;
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         CAPA
-    ========================= -->
+<!-- =========================
+     CAPA
+========================= -->
 
-    <section class="abertura">
+<section class="abertura">
 
-        <div class="conteudo-capa">
+    <div class="conteudo-capa">
 
-            <div class="morango">🍓</div>
+        <h1>HELENA</h1>
 
-            <h1>HELENA</h1>
-
-            <p class="subtitulo">
-                está completando<br>
-                <strong>1 aninho!</strong>
-            </p>
-
-            <a href="#video" class="botao">
-                ABRIR CONVITE 🍓
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         VÍDEO
-    ========================= -->
-
-    <section class="video" id="video">
-
-        <video controls playsinline>
-
-            <source
-                src="gemini_generated_video_56A4EB17.mp4"
-                type="video/mp4">
-
-            Seu navegador não consegue reproduzir este vídeo.
-
-        </video>
-
-    </section>
-
-
-    <!-- =========================
-         MENSAGEM
-    ========================= -->
-
-    <section class="mensagem">
-
-        <div class="foto-placeholder">
-            FOTO DA HELENA 🍓
-        </div>
-
-        <h2>Um dia muito especial! 💕</h2>
-
-        <p>
-            Você está convidado para comemorar
-            comigo o meu primeiro aninho!
+        <p class="subtitulo">
+            está completando
+            <strong>1 aninho!</strong>
         </p>
 
-    </section>
-
-
-    <!-- =========================
-         DATA
-    ========================= -->
-
-    <section class="data">
-
-        <h2>Reserve a data 🍓</h2>
-
-        <div class="numero">
-            XX • XX • 2026
-        </div>
-
-        <div class="horario">
-            às XX:XX
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         LOCAL
-    ========================= -->
-
-    <section class="local">
-
-        <h2>Onde será? 🌸</h2>
-
-        <p>
-            Nome do espaço<br>
-            Rua, número<br>
-            Guarulhos – SP
-        </p>
-
-        <a
-            class="botao"
-            href="https://www.google.com/maps"
-            target="_blank">
-
-            📍 VER NO MAPA
-
+        <a href="#video" class="botao">
+            ABRIR CONVITE 🍓
         </a>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =========================
-         CONFIRMAÇÃO
-    ========================= -->
+<!-- =========================
+     VÍDEO
+========================= -->
 
-    <section class="confirmacao">
+<section class="video" id="video">
 
-        <h2>Confirme sua presença 🍓</h2>
+    <video controls playsinline>
 
-        <p>
-            Esperamos você para comemorar
-            esse dia tão especial!
-        </p>
+        <source
+            src="gemini_generated_video_56A4EB17.mp4"
+            type="video/mp4">
 
-        <a
-            class="botao-branco"
-            href="#"
-            target="_blank">
+        Seu navegador não consegue reproduzir este vídeo.
 
-            💕 CONFIRMAR PRESENÇA
+    </video>
 
-        </a>
-
-    </section>
+</section>
 
 
-    <footer>
+<!-- =========================
+     MENSAGEM
+========================= -->
 
-        Feito com carinho para o 1º aninho da Helena 🍓
+<section class="mensagem">
 
-    </footer>
+    <div class="foto-placeholder">
+        FOTO DA HELENA 🍓
+    </div>
+
+    <h2>Um dia muito especial! 💕</h2>
+
+    <p>
+        Você está convidado para comemorar
+        comigo o meu primeiro aninho!
+    </p>
+
+</section>
+
+
+<!-- =========================
+     DATA
+========================= -->
+
+<section class="data">
+
+    <h2>Reserve a data 🍓</h2>
+
+    <div class="numero">
+        XX • XX • 2026
+    </div>
+
+    <div class="horario">
+        às XX:XX
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LOCAL
+========================= -->
+
+<section class="local">
+
+    <h2>Onde será? 🌸</h2>
+
+    <p>
+        Nome do espaço<br>
+        Rua, número<br>
+        Guarulhos – SP
+    </p>
+
+    <a
+        class="botao"
+        href="https://www.google.com/maps"
+        target="_blank">
+
+        📍 VER NO MAPA
+
+    </a>
+
+</section>
+
+
+<!-- =========================
+     CONFIRMAÇÃO
+========================= -->
+
+<section class="confirmacao">
+
+    <h2>Confirme sua presença 🍓</h2>
+
+    <p>
+        Esperamos você para comemorar
+        esse dia tão especial!
+    </p>
+
+    <a
+        class="botao-branco"
+        href="#"
+        target="_blank">
+
+        💕 CONFIRMAR PRESENÇA
+
+    </a>
+
+</section>
+
+
+<footer>
+
+    Feito com carinho para o 1º aninho da Helena 🍓
+
+</footer>
 
 
 </body>
