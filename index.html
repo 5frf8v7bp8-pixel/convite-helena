@@ -1,293 +1,388 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Helena — 1 aninho 🍓</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helena — 1 Aninho 🍓</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff4f5;
+    color: #6d3038;
+    overflow-x: hidden;
+}
+
+/* =========================
+   CAPA
+========================= */
+
+.abertura {
+    min-height: 100vh;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(255, 244, 245, 0.30),
+            rgba(255, 244, 245, 0.30)
+        ),
+        url('a_cute_pastel_vintage_illustration_style_children.png')
+        center center / cover no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 40px 22px 55px;
+    text-align: center;
+}
+
+/* camada suave para destacar o conteúdo */
+.abertura::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.05),
+        rgba(255,244,245,0.15),
+        rgba(255,244,245,0.65)
+    );
+    pointer-events: none;
+}
+
+/* conteúdo da capa */
+.conteudo-capa {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 390px;
+}
+
+/* morango */
+.morango {
+    font-size: 42px;
+    margin-bottom: 8px;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+/* título */
+h1 {
+    font-size: 48px;
+    color: #b52f43;
+    line-height: 1;
+    text-shadow: 1px 2px 0 rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+}
+
+/* subtítulo */
+.subtitulo {
+    font-size: 20px;
+    color: #78343c;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+/* botão */
+.botao {
+    display: inline-block;
+    background: #c93650;
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 14px rgba(150, 40, 60, 0.25);
+    transition: transform 0.2s ease;
+}
+
+.botao:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section:not(.abertura) {
+    min-height: 100vh;
+    padding: 55px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* vídeo */
+.video {
+    background: #fff8f5;
+}
+
+.video video {
+    width: 100%;
+    max-width: 430px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(120, 50, 60, 0.18);
+}
+
+/* mensagem */
+.mensagem {
+    background: #fff0f2;
+}
+
+.mensagem h2,
+.data h2,
+.local h2,
+.confirmacao h2 {
+    color: #b52f43;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.mensagem p {
+    max-width: 380px;
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.foto-placeholder {
+    width: 100%;
+    max-width: 320px;
+    height: 330px;
+    border-radius: 25px;
+    background: #f8d9de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #9b5360;
+    font-size: 18px;
+}
+
+/* data */
+.data {
+    background: #fff8f5;
+}
+
+.data-box {
+    background: white;
+    padding: 30px 35px;
+    border-radius: 25px;
+    box-shadow: 0 7px 22px rgba(120, 50, 60, 0.12);
+}
+
+.data-principal {
+    font-size: 38px;
+    color: #b52f43;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hora {
+    font-size: 21px;
+}
+
+/* localização */
+.local {
+    background: #fff0f2;
+}
+
+.local p {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 350px;
+    margin-bottom: 22px;
+}
+
+/* confirmação */
+.confirmacao {
+    background: #fff8f5;
+}
+
+.confirmacao p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    max-width: 350px;
+    line-height: 1.5;
+}
+
+/* animação */
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
     }
 
-    html {
-      scroll-behavior: smooth;
+    50% {
+        transform: translateY(-7px);
     }
+}
 
-    body {
-      font-family: Georgia, serif;
-      background: #fff8f5;
-      color: #5b3030;
-      overflow-x: hidden;
-    }
-
-    section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 25px;
-    }
-
-    /* CAPA */
-    .abertura {
-      position: relative;
-background: url('a_cute_pastel_vintage_illustration_style_children.png') center center / cover no-repeat;
-      flex-direction: column;
-    }
-
-    .morango {
-      font-size: 70px;
-      margin-bottom: 25px;
-      animation: flutuar 3s ease-in-out infinite;
-    }
+/* celular pequeno */
+@media (max-width: 380px) {
 
     h1 {
-      font-size: 52px;
-      font-weight: normal;
-      margin-bottom: 10px;
+        font-size: 42px;
     }
 
     .subtitulo {
-      font-size: 20px;
-      letter-spacing: 2px;
-      margin-bottom: 35px;
+        font-size: 18px;
     }
 
-    .botao {
-      display: inline-block;
-      padding: 15px 35px;
-      border: none;
-      border-radius: 40px;
-      background: #c94c55;
-      color: white;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      letter-spacing: 1px;
-      cursor: pointer;
+    .abertura {
+        padding-bottom: 40px;
     }
-
-    /* VÍDEO */
-    .video {
-      background: #fff8f5;
-      flex-direction: column;
-      padding: 25px 15px;
-    }
-
-    .video video {
-      width: 100%;
-      max-width: 430px;
-      max-height: 90vh;
-      border-radius: 25px;
-      object-fit: cover;
-      box-shadow: 0 10px 30px rgba(120, 50, 50, 0.15);
-    }
-
-    /* CONVITE */
-    .convite {
-      background: #fff8f5;
-      flex-direction: column;
-    }
-
-    .foto-placeholder {
-      width: 230px;
-      height: 300px;
-      border-radius: 120px 120px 20px 20px;
-      background: #f3d6d0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 35px;
-      font-family: Arial, sans-serif;
-      color: #9a6767;
-    }
-
-    .convite h2 {
-      font-size: 46px;
-      font-weight: normal;
-      margin-bottom: 10px;
-    }
-
-    .convite p {
-      max-width: 330px;
-      font-size: 19px;
-      line-height: 1.7;
-    }
-
-    .data {
-      background: #f8ddd8;
-      flex-direction: column;
-    }
-
-    .data h2 {
-      font-size: 18px;
-      letter-spacing: 5px;
-      font-family: Arial, sans-serif;
-      margin-bottom: 30px;
-    }
-
-    .numero {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .local {
-      background: #fff8f5;
-      flex-direction: column;
-    }
-
-    .local h2 {
-      font-size: 38px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-
-    .local p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-      max-width: 320px;
-    }
-
-    .confirmacao {
-      background: #ffe7e5;
-      flex-direction: column;
-    }
-
-    .confirmacao h2 {
-      font-size: 38px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-
-    .confirmacao p {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 320px;
-      margin-bottom: 30px;
-    }
-
-    @keyframes flutuar {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- CAPA -->
-  <section class="abertura">
-    <div class="morango">🍓</div>
+<!-- =========================
+     CAPA
+========================= -->
 
-    <h1>Helena</h1>
+<section class="abertura">
 
-    <div class="subtitulo">
-      está completando 1 aninho
+    <div class="conteudo-capa">
+
+        <div class="morango">🍓</div>
+
+        <h1>HELENA</h1>
+
+        <p class="subtitulo">
+            está completando<br>
+            <strong>1 aninho!</strong>
+        </p>
+
+        <a href="#video" class="botao">
+            ABRIR CONVITE 🍓
+        </a>
+
     </div>
 
-    <a href="#video" class="botao">
-      ABRIR CONVITE
-    </a>
-  </section>
+</section>
 
 
-  <!-- VÍDEO -->
-  <section class="video" id="video">
+<!-- =========================
+     VÍDEO
+========================= -->
+
+<section class="video" id="video">
 
     <video controls playsinline>
-      <source src="gemini_generated_video_56A4EB17.mp4" type="video/mp4">
-      Seu navegador não consegue reproduzir este vídeo.
+        <source
+            src="gemini_generated_video_56A4EB17.mp4"
+            type="video/mp4">
+        Seu navegador não consegue reproduzir este vídeo.
     </video>
 
-  </section>
+</section>
 
 
-  <!-- MENSAGEM -->
-  <section class="convite">
+<!-- =========================
+     MENSAGEM
+========================= -->
+
+<section class="mensagem">
 
     <div class="foto-placeholder">
-      FOTO DA HELENA
+        FOTO DA HELENA
     </div>
 
-    <h2>Helena</h2>
+    <h2>Um dia muito especial! 🍓</h2>
 
     <p>
-      Um ano de amor, sorrisos, descobertas
-      e momentos inesquecíveis. 💕
+        Estamos preparando uma comemoração
+        cheia de carinho para celebrar
+        o primeiro aninho da Helena.
     </p>
 
-    <br>
-
-    <p>
-      Venha comemorar esse dia tão especial
-      conosco! 🍓
-    </p>
-
-  </section>
+</section>
 
 
-  <!-- DATA -->
-  <section class="data">
+<!-- =========================
+     DATA
+========================= -->
 
-    <h2>SAVE THE DATE</h2>
+<section class="data">
 
-    <div class="numero">
-      XX • XX • 2026
+    <h2>Vamos comemorar!</h2>
+
+    <div class="data-box">
+
+        <div class="data-principal">
+            XX • XX • 2026
+        </div>
+
+        <div class="hora">
+            às XX:XX
+        </div>
+
     </div>
 
+</section>
+
+
+<!-- =========================
+     LOCAL
+========================= -->
+
+<section class="local">
+
+    <h2>Onde será? 🍓</h2>
+
     <p>
-      às XX:XX
-    </p>
-
-  </section>
-
-
-  <!-- LOCAL -->
-  <section class="local">
-
-    <h2>Onde será?</h2>
-
-    <p>
-      <strong>NOME DO LOCAL</strong><br>
-      Endereço da festa<br>
-      Guarulhos — SP
+        Nome do local<br>
+        Endereço do evento<br>
+        Guarulhos — SP
     </p>
 
     <a
-      href="https://www.google.com/maps"
-      target="_blank"
-      class="botao">
-      📍 COMO CHEGAR
+        class="botao"
+        href="https://www.google.com/maps"
+        target="_blank">
+        VER NO MAPA
     </a>
 
-  </section>
+</section>
 
 
-  <!-- CONFIRMAÇÃO -->
-  <section class="confirmacao">
+<!-- =========================
+     CONFIRMAÇÃO
+========================= -->
 
-    <h2>Você vem?</h2>
+<section class="confirmacao">
+
+    <h2>Você vem? 💗</h2>
 
     <p>
-      Sua presença vai deixar o primeiro aniversário
-      da Helena ainda mais especial! 💕
+        Confirme sua presença para
+        comemorar esse dia especial
+        com a Helena!
     </p>
 
-    <a href="#" class="botao">
-      CONFIRMAR PRESENÇA
+    <a
+        class="botao"
+        href="#"
+        target="_blank">
+        CONFIRMAR PRESENÇA
     </a>
 
-  </section>
+</section>
 
 </body>
 </html>
