@@ -1,1552 +1,1286 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>1 Aninho da Helena 🍓</title>
+  <title>1 aninho da Helena 🍓</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Parisienne&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Parisienne&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
 
-:root {
-    --creme: #fff8ef;
-    --creme2: #fff2e5;
-    --rosa: #e9a0a0;
-    --rosa-claro: #f7d7d2;
-    --rosa-suave: #fce8e3;
-    --vermelho: #b94e55;
-    --verde: #78945f;
-    --verde-claro: #a9bd8b;
-    --marrom: #704747;
-    --branco: #ffffff;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #fff8f0;
+      color: #6d4141;
+      overflow-x: hidden;
+    }
 
-body {
-    background: var(--creme);
-    color: var(--marrom);
-    font-family: "DM Sans", sans-serif;
-    overflow-x: hidden;
-}
+    button {
+      font-family: inherit;
+    }
 
-/* =========================
-   ABERTURA
-========================= */
+    /* =========================
+       ABERTURA
+    ========================= */
 
-#abertura {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(247,215,210,.7), transparent 25%),
-        radial-gradient(circle at 80% 80%, rgba(169,189,139,.25), transparent 25%),
-        var(--creme);
-}
+    #opening {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
 
-.envelope-area {
-    width: min(390px, 92vw);
-    position: relative;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-/* =========================
-   VÍDEO DA ABERTURA
-========================= */
+      background:
+        radial-gradient(circle at 20% 20%, rgba(247,214,210,.7), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(233,139,141,.25), transparent 30%),
+        #fff8f0;
 
-.video-reveal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 88%;
-
-    transform: translate(-50%, -50%) scale(.82);
-
-    opacity: 0;
-
-    z-index: 1;
-
-    transition:
+      transition:
         opacity .8s ease,
-        transform 1s cubic-bezier(.22,.61,.36,1);
-
-    pointer-events: none;
-}
-
-.video-reveal-frame {
-    padding: 8px;
-    background: var(--creme);
-    border-radius: 5px;
-    box-shadow: 0 18px 40px rgba(112,71,71,.2);
-}
-
-.video-reveal video {
-    width: 100%;
-    display: block;
-    border-radius: 2px;
-}
-
-/* =========================
-   ENVELOPE
-========================= */
-
-.envelope {
-    position: relative;
-    width: 100%;
-    height: 270px;
-
-    cursor: pointer;
-
-    perspective: 1000px;
-
-    filter:
-        drop-shadow(
-            0 20px 30px rgba(112,71,71,.18)
-        );
-
-    z-index: 3;
-
-    transition:
-        opacity .7s ease,
-        transform .8s ease;
-}
-
-.envelope-body {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            145deg,
-            #eaa5a4,
-            #d9868b
-        );
-
-    border-radius: 8px;
-
-    overflow: hidden;
-}
-
-.envelope-body::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    opacity: .15;
-
-    background-image:
-        radial-gradient(
-            #fff 1px,
-            transparent 1px
-        );
-
-    background-size: 13px 13px;
-}
-
-/* cartão */
-
-.envelope-card {
-    position: absolute;
-
-    left: 8%;
-    right: 8%;
-    bottom: 25px;
-
-    height: 205px;
-
-    background: var(--creme);
-
-    border-radius: 5px;
-
-    z-index: 2;
-
-    padding: 25px 18px;
-
-    text-align: center;
-
-    box-shadow:
-        0 5px 15px rgba(112,71,71,.12);
-
-    transition:
-        transform 1s cubic-bezier(.22,.61,.36,1),
-        opacity .7s ease;
-}
-
-.envelope-card small {
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    color: var(--vermelho);
-}
-
-.envelope-card h1 {
-    font-family: "Parisienne", cursive;
-
-    font-size: 48px;
-
-    line-height: 1;
-
-    color: var(--vermelho);
-
-    margin: 12px 0 5px;
-}
-
-.envelope-card p {
-    font-family: "Playfair Display", serif;
-
-    font-size: 18px;
-
-    color: var(--marrom);
-}
-
-/* aba */
-
-.envelope-flap {
-    position: absolute;
-
-    inset: 0;
-
-    height: 58%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f2b4b1,
-            #e39497
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    transform-origin: top;
-
-    transition:
-        transform 1s cubic-bezier(.65,.05,.36,1);
-
-    z-index: 5;
-}
-
-/* selo */
-
-.seal {
-    position: absolute;
-
-    left: 50%;
-    top: 47%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 65px;
-    height: 65px;
-
-    border-radius: 50%;
-
-    background: var(--vermelho);
-
-    border: 5px solid var(--creme);
-
-    box-shadow:
-        0 4px 10px rgba(112,71,71,.2);
-
-    z-index: 7;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 30px;
-
-    transition: .5s;
-}
-
-.envelope:hover .seal {
-    transform:
-        translate(-50%, -50%)
-        scale(1.06);
-}
-
-/* decoração */
-
-.decor {
-    position: absolute;
-
-    z-index: 10;
-
-    user-select: none;
-}
-
-.decor.strawberry1 {
-    left: -20px;
-    top: -22px;
-
-    font-size: 38px;
-
-    transform: rotate(-15deg);
-}
-
-.decor.strawberry2 {
-    right: -18px;
-    bottom: -15px;
-
-    font-size: 32px;
-
-    transform: rotate(15deg);
-}
-
-.decor.flower1 {
-    right: -25px;
-    top: 35px;
-
-    font-size: 28px;
-}
-
-.decor.flower2 {
-    left: -22px;
-    bottom: 40px;
-
-    font-size: 25px;
-}
-
-/* texto */
-
-.open-text {
-    text-align: center;
-
-    margin-top: 25px;
-
-    color: var(--marrom);
-
-    transition:
-        opacity .4s ease;
-}
-
-.open-text strong {
-    display: block;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 18px;
-
-    margin-bottom: 4px;
-}
-
-.open-text span {
-    font-size: 13px;
-
-    opacity: .7;
-}
-
-/* =========================
-   ABERTURA DO ENVELOPE
-========================= */
-
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-}
-
-.envelope.open .seal {
-    opacity: 0;
-
-    transform:
-        translate(-50%, -50%)
-        scale(.5);
-}
-
-.envelope.open .envelope-card {
-    transform:
-        translateY(-85px)
-        scale(.96);
-
-    opacity: 0;
-}
-
-.envelope-area.reveal-video .video-reveal {
-    opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-}
-
-.envelope-area.reveal-video .envelope {
-    opacity: 0;
-
-    transform:
-        translateY(45px)
-        scale(.92);
-
-    pointer-events: none;
-}
-
-.envelope-area.reveal-video .open-text {
-    opacity: 0;
-}
-
-.envelope-area.playing-video {
-    width: min(430px, 94vw);
-}
-
-.envelope-area.playing-video .video-reveal {
-    pointer-events: auto;
-}
-
-.envelope-area.video-finished .video-reveal {
-    opacity: 0;
-
-    transform:
-        translate(-50%, -50%)
-        scale(.96);
-}
-
-/* =========================
-   CONVITE
-========================= */
-
-#convite {
-    display: none;
-
-    animation:
-        aparecer 1s ease;
-}
-
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+        visibility .8s ease;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    #opening.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
-}
-
-section {
-    padding: 70px 20px;
-
-    max-width: 900px;
-
-    margin: auto;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 55vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding-top: 80px;
-}
-
-.hero::before {
-    content: "🍓";
-
-    position: absolute;
-
-    left: 8%;
-    top: 25%;
-
-    font-size: 30px;
-
-    transform: rotate(-15deg);
-}
-
-.hero::after {
-    content: "🌸";
-
-    position: absolute;
-
-    right: 8%;
-    top: 20%;
-
-    font-size: 28px;
-}
-
-.hero-content {
-    max-width: 650px;
-}
-
-.eyebrow {
-    color: var(--vermelho);
-
-    text-transform: uppercase;
-
-    letter-spacing: 4px;
-
-    font-size: 11px;
-
-    margin-bottom: 10px;
-}
-
-.hero h2 {
-    font-family: "Parisienne", cursive;
-
-    font-size:
-        clamp(
-            55px,
-            15vw,
-            90px
-        );
-
-    line-height: .95;
-
-    color: var(--vermelho);
-
-    font-weight: 400;
-}
-
-.hero h3 {
-    font-family: "Playfair Display", serif;
-
-    font-size:
-        clamp(
-            23px,
-            6vw,
-            34px
-        );
-
-    margin-top: 8px;
-
-    font-weight: 600;
-}
-
-.hero p {
-    margin-top: 18px;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    opacity: .8;
-}
-
-/* divisor */
-
-.divider {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    margin: 20px auto;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-
-    width: 55px;
-
-    height: 1px;
-
-    background: var(--rosa);
-}
-
-.divider span {
-    font-size: 15px;
-}
-
-/* =========================
-   VÍDEO
-========================= */
-
-.video-section {
-    background: var(--rosa-suave);
-
-    max-width: none;
-}
-
-.video-inner {
-    max-width: 760px;
-
-    margin: auto;
-
-    text-align: center;
-}
-
-.section-title {
-    font-family: "Playfair Display", serif;
-
-    font-size: 28px;
-
-    color: var(--marrom);
-}
-
-.section-subtitle {
-    font-size: 14px;
-
-    margin-top: 8px;
-
-    opacity: .7;
-}
-
-.video-frame {
-    margin: 30px auto 0;
-
-    max-width: 430px;
-
-    padding: 9px;
-
-    background: var(--creme);
-
-    border:
-        1px solid rgba(112,71,71,.12);
-
-    box-shadow:
-        0 15px 35px rgba(112,71,71,.15);
-
-    border-radius: 5px;
-}
-
-.video-frame video {
-    width: 100%;
-
-    display: block;
-
-    border-radius: 2px;
-}
-
-/* =========================
-   FOTOS
-========================= */
-
-.photos {
-    text-align: center;
-}
-
-.photo-placeholder {
-    margin: 30px auto 0;
-
-    max-width: 650px;
-
-    min-height: 270px;
-
-    padding: 45px 25px;
-
-    border:
-        1px dashed var(--rosa);
-
-    background: var(--creme2);
-
-    position: relative;
-}
-
-.photo-placeholder::before,
-.photo-placeholder::after {
-    content: "🍓";
-
-    position: absolute;
-
-    font-size: 25px;
-}
-
-.photo-placeholder::before {
-    left: 18px;
-    top: 15px;
-}
-
-.photo-placeholder::after {
-    right: 18px;
-    bottom: 15px;
-}
-
-.photo-placeholder .camera {
-    font-size: 38px;
-
-    margin-bottom: 12px;
-}
-
-.photo-placeholder h4 {
-    font-family: "Playfair Display", serif;
-
-    font-size: 21px;
-
-    margin-bottom: 8px;
-}
-
-.photo-placeholder p {
-    font-size: 13px;
-
-    opacity: .65;
-}
-
-/* =========================
-   MENSAGEM
-========================= */
-
-.message {
-    background: var(--creme2);
-
-    max-width: none;
-}
-
-.message-inner {
-    max-width: 700px;
-
-    margin: auto;
-
-    text-align: center;
-}
-
-.message-card {
-    margin-top: 25px;
-
-    background:
-        rgba(255,255,255,.55);
-
-    padding: 35px 25px;
-
-    border:
-        1px solid rgba(185,78,85,.12);
-}
-
-.message-card p {
-    font-family: "Playfair Display", serif;
-
-    font-size: 18px;
-
-    line-height: 1.8;
-}
-
-.signature {
-    margin-top: 18px;
-
-    font-family: "Parisienne", cursive;
-
-    color: var(--vermelho);
-
-    font-size: 35px;
-}
-
-/* =========================
-   DATA
-========================= */
-
-.details {
-    text-align: center;
-}
-
-.details-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 18px;
-
-    max-width: 620px;
-
-    margin: 35px auto 0;
-}
-
-.detail {
-    background: var(--creme2);
-
-    padding: 25px 15px;
-
-    border-top:
-        3px solid var(--rosa);
-}
-
-.detail .icon {
-    font-size: 25px;
-
-    margin-bottom: 8px;
-}
-
-.detail small {
-    display: block;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    font-size: 10px;
-
-    color: var(--vermelho);
-}
-
-.detail strong {
-    display: block;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 18px;
-
-    margin-top: 6px;
-}
-
-/* =========================
-   LOCAL
-========================= */
-
-.location {
-    background: var(--rosa-suave);
-
-    max-width: none;
-
-    text-align: center;
-}
-
-.location-inner {
-    max-width: 650px;
-
-    margin: auto;
-}
-
-.location-box {
-    margin-top: 28px;
-
-    background: var(--creme);
-
-    padding: 32px 22px;
-
-    border:
-        1px solid rgba(112,71,71,.1);
-}
-
-.location-box .icon {
-    font-size: 32px;
-}
-
-.location-box h4 {
-    font-family: "Playfair Display", serif;
-
-    font-size: 22px;
-
-    margin: 10px 0 5px;
-}
-
-.location-box p {
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    opacity: .7;
-}
-
-.map-button,
-.confirm-button {
-    display: inline-block;
-
-    margin-top: 20px;
-
-    padding: 13px 25px;
-
-    border-radius: 30px;
-
-    background: var(--vermelho);
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    transition: .25s;
-}
-
-.map-button:hover,
-.confirm-button:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 7px 15px rgba(185,78,85,.25);
-}
-
-/* =========================
-   CONFIRMAÇÃO
-========================= */
-
-.confirm {
-    text-align: center;
-
-    position: relative;
-}
-
-.confirm-card {
-    max-width: 650px;
-
-    margin: auto;
-
-    padding: 45px 25px;
-
-    background: var(--creme2);
-
-    border:
-        1px solid rgba(112,71,71,.1);
-}
-
-.confirm-card h3 {
-    font-family: "Playfair Display", serif;
-
-    font-size: 27px;
-}
-
-.confirm-card p {
-    margin-top: 10px;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-
-    opacity: .75;
-}
-
-/* =========================
-   RODAPÉ
-========================= */
-
-footer {
-    text-align: center;
-
-    padding: 35px 20px 45px;
-
-    background: var(--vermelho);
-
-    color: white;
-}
-
-footer .footer-title {
-    font-family: "Parisienne", cursive;
-
-    font-size: 35px;
-}
-
-footer p {
-    font-size: 11px;
-
-    margin-top: 5px;
-
-    opacity: .85;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 550px) {
+    .opening-decoration {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .strawberry {
+      position: absolute;
+      font-size: 28px;
+      opacity: .75;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .strawberry.one {
+      top: 12%;
+      left: 10%;
+    }
+
+    .strawberry.two {
+      top: 20%;
+      right: 12%;
+      animation-delay: 1s;
+    }
+
+    .strawberry.three {
+      bottom: 15%;
+      left: 13%;
+      animation-delay: 2s;
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 26px;
+      opacity: .65;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .flower.one {
+      top: 15%;
+      right: 25%;
+    }
+
+    .flower.two {
+      bottom: 18%;
+      right: 14%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes float {
+      0%,100% {
+        transform: translateY(0) rotate(0);
+      }
+
+      50% {
+        transform: translateY(-8px) rotate(4deg);
+      }
+    }
+
+    /* =========================
+       ENVELOPE
+    ========================= */
+
+    .envelope-wrapper {
+      position: relative;
+      width: min(88vw, 390px);
+      height: 285px;
+
+      perspective: 1000px;
+      transition: transform .8s ease, opacity .6s ease;
+    }
+
+    .envelope-wrapper.opened {
+      transform: translateY(15px) scale(.96);
+    }
 
     .envelope {
-        height: 245px;
+      position: absolute;
+      inset: 0;
+
+      background: linear-gradient(
+        145deg,
+        #f7d6d2,
+        #e98b8d
+      );
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 20px 45px rgba(109,65,65,.18),
+        0 5px 15px rgba(109,65,65,.08);
+
+      overflow: visible;
     }
 
     .envelope-card {
-        height: 185px;
+      position: absolute;
 
-        bottom: 20px;
+      width: 82%;
+      height: 78%;
+
+      left: 9%;
+      top: 11%;
+
+      background: #fff8f0;
+
+      border-radius: 12px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      box-shadow: 0 4px 15px rgba(109,65,65,.08);
+
+      z-index: 2;
+
+      transition:
+        transform 1s ease,
+        opacity .6s ease;
+    }
+
+    .envelope-card small {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #78945f;
+      margin-bottom: 8px;
     }
 
     .envelope-card h1 {
-        font-size: 43px;
+      font-family: "Parisienne", cursive;
+      font-size: 53px;
+      font-weight: 400;
+      color: #b94e55;
+      line-height: 1;
     }
 
-    .video-reveal {
-        width: 92%;
+    .envelope-card p {
+      margin-top: 7px;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      color: #6d4141;
+    }
+
+    .flap {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 58%;
+
+      background: linear-gradient(
+        145deg,
+        #f4c7c5,
+        #df777d
+      );
+
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+      );
+
+      transform-origin: top center;
+
+      transition: transform 1s ease;
+
+      z-index: 5;
+    }
+
+    .seal {
+      position: absolute;
+
+      left: 50%;
+      top: 46%;
+
+      transform: translate(-50%, -50%);
+
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #fff8f0;
+
+      font-size: 28px;
+
+      box-shadow: 0 5px 15px rgba(109,65,65,.15);
+
+      z-index: 10;
+
+      transition:
+        opacity .5s ease,
+        transform .7s ease;
+    }
+
+    .envelope-wrapper.opened .flap {
+      transform: rotateX(180deg);
+    }
+
+    .envelope-wrapper.opened .seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(.6);
+    }
+
+    .opening-text {
+      position: absolute;
+
+      bottom: -72px;
+      left: 0;
+      right: 0;
+
+      text-align: center;
+
+      font-size: 13px;
+      color: #78945f;
+
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% {
+        opacity: .55;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+       VÍDEO DA ABERTURA
+    ========================= */
+
+    #videoReveal {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: min(88vw, 390px);
+
+      max-height: 70vh;
+
+      transform: translate(-50%, -50%) scale(.85);
+
+      object-fit: contain;
+
+      border-radius: 20px;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      z-index: 20;
+
+      background: #000;
+
+      box-shadow:
+        0 20px 50px rgba(109,65,65,.25);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s ease;
+    }
+
+    #videoReveal.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* =========================
+       CONVITE
+    ========================= */
+
+    #invite {
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity .8s ease,
+        visibility .8s ease;
+    }
+
+    #invite.visible {
+      opacity: 1;
+      visibility: visible;
     }
 
     .hero {
-        min-height: 60vh;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 60px 24px 50px;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(247,214,210,.6),
+          transparent 30%
+        ),
+        #fff8f0;
+
+      position: relative;
+      overflow: hidden;
     }
 
-    .details-grid {
-        grid-template-columns: 1fr;
+    .hero-decoration {
+      position: absolute;
+      font-size: 25px;
+      opacity: .55;
     }
+
+    .hero-decoration.a {
+      top: 15%;
+      left: 8%;
+    }
+
+    .hero-decoration.b {
+      top: 22%;
+      right: 9%;
+    }
+
+    .hero-decoration.c {
+      bottom: 20%;
+      left: 12%;
+    }
+
+    .hero-decoration.d {
+      bottom: 14%;
+      right: 12%;
+    }
+
+    .hero .mini {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #78945f;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-family: "Parisienne", cursive;
+      font-weight: 400;
+      font-size: clamp(65px, 17vw, 105px);
+      line-height: .9;
+      color: #b94e55;
+    }
+
+    .hero h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: 22px;
+      margin-top: 15px;
+      color: #6d4141;
+    }
+
+    .hero p {
+      max-width: 360px;
+      margin-top: 15px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* =========================
+       SEÇÕES
+    ========================= */
 
     section {
-        padding: 60px 18px;
+      padding: 70px 22px;
+      text-align: center;
     }
 
-}
+    .section-title {
+      font-family: "Parisienne", cursive;
+      font-size: 48px;
+      font-weight: 400;
+      color: #b94e55;
+      margin-bottom: 12px;
+    }
 
-</style>
+    .section-subtitle {
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 390px;
+      margin: 0 auto 30px;
+    }
+
+    /* =========================
+       VÍDEO
+    ========================= */
+
+    .video-section {
+      background: #f7d6d2;
+    }
+
+    .video-frame {
+      width: min(100%, 420px);
+      margin: auto;
+
+      background: #fff8f0;
+
+      padding: 10px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 15px 35px rgba(109,65,65,.15);
+    }
+
+    #video-placeholder {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      background: #ead7d1;
+    }
+
+    /* =========================
+       FOTOS
+    ========================= */
+
+    .photos-section {
+      background: #fff8f0;
+    }
+
+    .photo-placeholder {
+      width: min(100%, 400px);
+      min-height: 280px;
+
+      margin: auto;
+
+      border-radius: 22px;
+
+      border: 2px dashed #e98b8d;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(247,214,210,.5),
+          rgba(255,248,240,.8)
+        );
+    }
+
+    .photo-placeholder .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .photo-placeholder strong {
+      color: #b94e55;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+    }
+
+    .photo-placeholder span {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #78945f;
+    }
+
+    /* =========================
+       MENSAGEM
+    ========================= */
+
+    .message-section {
+      background: #f7d6d2;
+    }
+
+    .message-box {
+      max-width: 500px;
+      margin: auto;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 17px;
+      line-height: 1.9;
+
+      color: #6d4141;
+    }
+
+    /* =========================
+       DETALHES
+    ========================= */
+
+    .details-section {
+      background: #fff8f0;
+    }
+
+    .details {
+      width: min(100%, 430px);
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .detail {
+      padding: 20px;
+
+      background: #fff;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 7px 20px rgba(109,65,65,.08);
+
+      border: 1px solid rgba(185,78,85,.08);
+    }
+
+    .detail .emoji {
+      font-size: 27px;
+      margin-bottom: 7px;
+    }
+
+    .detail strong {
+      display: block;
+
+      color: #b94e55;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 18px;
+
+      margin-bottom: 4px;
+    }
+
+    .detail span {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       LOCAL
+    ========================= */
+
+    .location-section {
+      background: #78945f;
+      color: #fff8f0;
+    }
+
+    .location-section .section-title {
+      color: #fff8f0;
+    }
+
+    .location-section .section-subtitle {
+      color: rgba(255,248,240,.9);
+    }
+
+    .map-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 210px;
+
+      padding: 14px 22px;
+
+      border-radius: 999px;
+
+      background: #fff8f0;
+      color: #b94e55;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.12);
+
+      transition:
+        transform .2s ease;
+    }
+
+    .map-button:active {
+      transform: scale(.96);
+    }
+
+    /* =========================
+       CONFIRMAÇÃO
+    ========================= */
+
+    .confirmation-section {
+      background: #f7d6d2;
+    }
+
+    .confirmation-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 15px 25px;
+
+      border-radius: 999px;
+
+      background: #b94e55;
+      color: #fff;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 20px rgba(185,78,85,.22);
+
+      transition:
+        transform .2s ease;
+    }
+
+    .confirmation-button:active {
+      transform: scale(.96);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 35px 20px;
+
+      text-align: center;
+
+      background: #fff8f0;
+
+      font-family: "Parisienne", cursive;
+
+      font-size: 28px;
+
+      color: #b94e55;
+    }
+
+    footer small {
+      display: block;
+
+      margin-top: 7px;
+
+      font-family: "DM Sans", sans-serif;
+
+      font-size: 11px;
+
+      color: #78945f;
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-     ABERTURA
-========================= -->
+  <!-- ==========================================
+       ABERTURA
+  =========================================== -->
 
-<div id="abertura">
+  <div id="opening">
 
-    <div
-        class="envelope-area"
-        id="envelopeArea">
+    <div class="opening-decoration">
 
-        <div class="decor strawberry1">
-            🍓
-        </div>
+      <span class="strawberry one">🍓</span>
+      <span class="strawberry two">🍓</span>
+      <span class="strawberry three">🍓</span>
 
-        <div class="decor strawberry2">
-            🍓
-        </div>
-
-        <div class="decor flower1">
-            🌸
-        </div>
-
-        <div class="decor flower2">
-            🌼
-        </div>
-
-        <!-- VÍDEO DA ABERTURA -->
-
-        <div class="video-reveal">
-
-            <div class="video-reveal-frame">
-
-                <video
-                    id="videoReveal"
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="video-helena.mp4.MOV"
-                        type="video/quicktime">
-
-                    Seu navegador não conseguiu carregar o vídeo.
-
-                </video>
-
-            </div>
-
-        </div>
-
-        <!-- ENVELOPE -->
-
-        <div
-            class="envelope"
-            id="envelope"
-            onclick="abrirConvite()">
-
-            <div class="envelope-body">
-
-                <div class="envelope-card">
-
-                    <small>
-                        Um convite especial
-                    </small>
-
-                    <h1>
-                        1 aninho
-                    </h1>
-
-                    <p>
-                        da Helena 🍓
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="envelope-flap"></div>
-
-            <div class="seal">
-                🍓
-            </div>
-
-        </div>
-
-        <div class="open-text">
-
-            <strong>
-                Você recebeu um convite!
-            </strong>
-
-            <span>
-                Toque no envelope para abrir
-            </span>
-
-        </div>
+      <span class="flower one">🌸</span>
+      <span class="flower two">🌼</span>
 
     </div>
 
-</div>
+
+    <!-- ENVELOPE -->
+
+    <div
+      class="envelope-wrapper"
+      id="envelopeWrapper"
+      onclick="abrirConvite()"
+    >
+
+      <div class="envelope">
+
+        <div class="envelope-card">
+
+          <small>Um convite especial</small>
+
+          <h1>1 aninho</h1>
+
+          <p>da Helena 🍓</p>
+
+        </div>
 
 
-<!-- =========================
-     CONVITE
-========================= -->
+        <div class="flap"></div>
 
-<main id="convite">
+
+        <div class="seal">
+          🍓
+        </div>
+
+      </div>
+
+
+      <div class="opening-text">
+        Toque para abrir o convite
+      </div>
+
+    </div>
+
+
+    <!-- ÚNICO VÍDEO DO CONVITE -->
+
+    <video
+      id="videoReveal"
+      playsinline
+      preload="auto"
+      controls="false"
+    >
+
+      <source
+        src="video-helena.mp4.MOV"
+        type="video/quicktime"
+      >
+
+      Seu navegador não conseguiu carregar o vídeo.
+
+    </video>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       CONVITE
+  =========================================== -->
+
+  <main id="invite">
+
 
     <!-- HERO -->
 
     <section class="hero">
 
-        <div class="hero-content">
+      <span class="hero-decoration a">🍓</span>
+      <span class="hero-decoration b">🌸</span>
+      <span class="hero-decoration c">🍓</span>
+      <span class="hero-decoration d">🌼</span>
 
-            <div class="eyebrow">
-                Um dia muito especial
-            </div>
 
-            <h2>
-                Helena
-            </h2>
+      <div class="mini">
+        Um dia muito especial
+      </div>
 
-            <h3>
-                está completando seu primeiro aninho
-            </h3>
 
-            <div class="divider">
-                <span>🍓</span>
-            </div>
+      <h1>Helena</h1>
 
-            <p>
-                Um dia cheio de amor, alegria e momentos
-                especiais está chegando.
-            </p>
 
-        </div>
+      <h2>está completando seu primeiro aninho!</h2>
+
+
+      <p>
+        E queremos comemorar esse momento
+        cheio de amor, alegria e muitos moranguinhos
+        ao lado de pessoas especiais.
+      </p>
 
     </section>
+
 
 
     <!-- VÍDEO -->
 
     <section class="video-section">
 
-        <div class="video-inner">
+      <h2 class="section-title">
+        Um pedacinho desse amor
+      </h2>
 
-            <h3 class="section-title">
-                Um convite feito com carinho
-            </h3>
+      <p class="section-subtitle">
+        Um momento especial para guardar para sempre. 🍓
+      </p>
 
-            <p class="section-subtitle">
-                Uma pequena surpresa para você 💕
-            </p>
 
-            <div class="video-frame">
+      <div class="video-frame">
 
-                <video
-                    id="videoHelena"
-                    controls
-                    playsinline
-                    preload="metadata">
+        <!--
+          IMPORTANTE:
+          Este espaço será ocupado pelo MESMO vídeo
+          utilizado na abertura.
+        -->
 
-                    <source
-                        src="video-helena.mp4.MOV"
-                        type="video/quicktime">
+        <div id="videoNormalContainer"></div>
 
-                    Seu navegador não conseguiu carregar o vídeo.
-
-                </video>
-
-            </div>
-
-        </div>
+      </div>
 
     </section>
+
 
 
     <!-- FOTOS -->
 
-    <section class="photos">
+    <section class="photos-section">
 
-        <div class="eyebrow">
-            Momentos especiais
+      <h2 class="section-title">
+        Nossa Helena
+      </h2>
+
+      <p class="section-subtitle">
+        Um pouquinho da nossa Helena... 🍓
+      </p>
+
+
+      <div class="photo-placeholder">
+
+        <div class="icon">
+          🍓
         </div>
 
-        <h3 class="section-title">
-            Um pouquinho da nossa Helena... 🍓
-        </h3>
+        <strong>
+          Aqui entrarão as fotos da Helena
+        </strong>
 
-        <p class="section-subtitle">
-            Em breve, alguns registros desse primeiro ano cheio de amor.
-        </p>
+        <span>
+          Em breve, alguns registros desse primeiro
+          ano cheio de amor.
+        </span>
 
-        <div class="photo-placeholder">
-
-            <div class="camera">
-                📸
-            </div>
-
-            <h4>
-                Aqui entrarão as fotos da Helena
-            </h4>
-
-            <p>
-                Espaço reservado para os momentos escolhidos
-                pela família.
-            </p>
-
-        </div>
+      </div>
 
     </section>
+
 
 
     <!-- MENSAGEM -->
 
-    <section class="message">
+    <section class="message-section">
 
-        <div class="message-inner">
+      <h2 class="section-title">
+        Com muito carinho
+      </h2>
 
-            <div class="eyebrow">
-                Com muito carinho
-            </div>
 
-            <h3 class="section-title">
-                Um ano de amor
-            </h3>
+      <div class="message-box">
 
-            <div class="message-card">
+        <p>
+          O primeiro aninho é um momento muito especial,
+          cheio de descobertas, sorrisos e memórias
+          que ficam para sempre no coração.
+        </p>
 
-                <p>
+        <br>
 
-                    Há um ano, nossa família ganhou um motivo
-                    ainda maior para sorrir, amar e agradecer.
+        <p>
+          Por isso, queremos celebrar o primeiro ano
+          da nossa pequena Helena junto de quem faz
+          parte da sua história. ❤️
+        </p>
 
-                    <br><br>
-
-                    Agora queremos comemorar esse momento
-                    tão especial ao lado de pessoas queridas.
-
-                    <br><br>
-
-                    Será uma alegria ter você conosco! 🍓
-
-                </p>
-
-                <div class="signature">
-                    Helena
-                </div>
-
-            </div>
-
-        </div>
+      </div>
 
     </section>
 
 
-    <!-- DATA E HORÁRIO -->
 
-    <section class="details">
+    <!-- DETALHES -->
 
-        <div class="eyebrow">
-            Anote na agenda
-        </div>
+    <section class="details-section">
 
-        <h3 class="section-title">
-            O grande dia
-        </h3>
+      <h2 class="section-title">
+        Anote aí!
+      </h2>
 
-        <div class="details-grid">
+      <p class="section-subtitle">
+        Todos os detalhes para você não perder nada.
+      </p>
 
-            <div class="detail">
 
-                <div class="icon">
-                    📅
-                </div>
+      <div class="details">
 
-                <small>
-                    Data
-                </small>
 
-                <strong>
-                    Em breve
-                </strong>
+        <div class="detail">
 
-            </div>
+          <div class="emoji">
+            📅
+          </div>
 
-            <div class="detail">
+          <strong>
+            Data
+          </strong>
 
-                <div class="icon">
-                    🕐
-                </div>
-
-                <small>
-                    Horário
-                </small>
-
-                <strong>
-                    Em breve
-                </strong>
-
-            </div>
+          <span>
+            DATA DO ANIVERSÁRIO
+          </span>
 
         </div>
+
+
+        <div class="detail">
+
+          <div class="emoji">
+            ⏰
+          </div>
+
+          <strong>
+            Horário
+          </strong>
+
+          <span>
+            HORÁRIO DA FESTA
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <div class="emoji">
+            🍓
+          </div>
+
+          <strong>
+            Traje
+          </strong>
+
+          <span>
+            Venha confortável para aproveitar
+            esse dia especial com a gente!
+          </span>
+
+        </div>
+
+      </div>
 
     </section>
+
 
 
     <!-- LOCAL -->
 
-    <section class="location">
+    <section class="location-section">
 
-        <div class="location-inner">
+      <h2 class="section-title">
+        Onde será?
+      </h2>
 
-            <div class="eyebrow">
-                Onde será?
-            </div>
 
-            <h3 class="section-title">
-                Nosso encontro
-            </h3>
+      <p class="section-subtitle">
+        Estamos esperando você para comemorar
+        esse dia tão especial!
+      </p>
 
-            <div class="location-box">
 
-                <div class="icon">
-                    📍
-                </div>
+      <p style="margin-bottom: 22px;">
+        ENDEREÇO DA FESTA
+      </p>
 
-                <h4>
-                    Local do aniversário
-                </h4>
 
-                <p>
-                    As informações sobre o local
-                    serão adicionadas em breve.
-                </p>
-
-                <a
-                    class="map-button"
-                    href="#"
-                    onclick="return false;">
-
-                    Ver localização
-
-                </a>
-
-            </div>
-
-        </div>
+      <a
+        class="map-button"
+        href="https://www.google.com/maps"
+        target="_blank"
+      >
+        📍 Ver localização
+      </a>
 
     </section>
+
 
 
     <!-- CONFIRMAÇÃO -->
 
-    <section class="confirm">
+    <section class="confirmation-section">
 
-        <div class="confirm-card">
+      <h2 class="section-title">
+        Você vem?
+      </h2>
 
-            <div class="eyebrow">
-                Esperamos por você
-            </div>
 
-            <h3>
-                Sua presença é o nosso presente! 💌
-            </h3>
+      <p class="section-subtitle">
+        Confirme sua presença para podermos
+        preparar tudo com muito carinho. ❤️
+      </p>
 
-            <p>
-                Em breve disponibilizaremos o contato
-                para confirmação da presença.
-            </p>
 
-            <a
-                class="confirm-button"
-                href="#"
-                onclick="return false;">
-
-                Confirmar presença
-
-            </a>
-
-        </div>
+      <a
+        class="confirmation-button"
+        href="https://wa.me/"
+        target="_blank"
+      >
+        💌 Confirmar presença
+      </a>
 
     </section>
 
 
-    <!-- RODAPÉ -->
+
+    <!-- FOOTER -->
 
     <footer>
 
-        <div class="footer-title">
-            Helena 🍓
-        </div>
+      Helena 🍓
 
-        <p>
-            Com carinho, Helena e família
-        </p>
+      <small>
+        Feito com muito amor para celebrar
+        seu primeiro aninho.
+      </small>
 
     </footer>
 
-</main>
+
+  </main>
 
 
-<script>
 
-/* =========================
-   ABRIR CONVITE
-========================= */
+  <!-- ==========================================
+       JAVASCRIPT
+  =========================================== -->
 
-function abrirConvite() {
+  <script>
 
-    const envelope =
-        document.getElementById("envelope");
+    let conviteAberto = false;
 
-    const envelopeArea =
-        document.getElementById("envelopeArea");
 
-    const abertura =
-        document.getElementById("abertura");
+    function abrirConvite() {
 
-    const convite =
-        document.getElementById("convite");
+      if (conviteAberto) {
+        return;
+      }
 
-    const videoReveal =
+      conviteAberto = true;
+
+
+      const opening =
+        document.getElementById("opening");
+
+      const envelope =
+        document.getElementById("envelopeWrapper");
+
+      const video =
         document.getElementById("videoReveal");
 
-    const videoHelena =
-        document.getElementById("videoHelena");
+      const invite =
+        document.getElementById("invite");
+
+      const videoContainer =
+        document.getElementById("videoNormalContainer");
 
 
-    /* Impede clique duplo */
+      /*
+       * IMPORTANTE:
+       *
+       * O play() acontece IMEDIATAMENTE dentro
+       * do clique no envelope.
+       *
+       * Isso é importante principalmente no
+       * Safari/iPhone, que bloqueia vídeos com
+       * áudio quando o play acontece depois
+       * de um setTimeout.
+       */
 
-    if (
-        envelope.classList.contains("open") ||
-        envelopeArea.classList.contains("reveal-video")
-    ) {
-        return;
-    }
-
-
-    /* =========================
-       1. ABRE O ENVELOPE
-    ========================= */
-
-    envelope.classList.add("open");
-
-
-    /* =========================
-       2. REVELA O VÍDEO
-    ========================= */
-
-    setTimeout(() => {
-
-        envelopeArea.classList.add(
-            "reveal-video"
-        );
-
-        envelopeArea.classList.add(
-            "playing-video"
-        );
+      video.muted = false;
+      video.volume = 1;
+      video.currentTime = 0;
 
 
-        /*
-           O usuário acabou de tocar
-           no envelope.
-
-           Por isso tentamos iniciar
-           o vídeo COM ÁUDIO.
-        */
-
-        videoReveal.muted = false;
-        videoReveal.volume = 1;
-        videoReveal.currentTime = 0;
+      const tentativaDePlay = video.play();
 
 
-        videoReveal.play().catch(() => {
+      if (tentativaDePlay !== undefined) {
 
-            /*
-               Alguns navegadores ainda podem
-               bloquear o áudio.
+        tentativaDePlay.catch(function(erro) {
 
-               Se isso acontecer, o vídeo
-               começa silenciosamente.
-            */
-
-            videoReveal.muted = true;
-
-            videoReveal.play().catch(() => {});
+          console.log(
+            "O navegador bloqueou o áudio automático:",
+            erro
+          );
 
         });
 
-    }, 800);
+      }
 
 
-    /* =========================
-       3. ESPERA O VÍDEO TERMINAR
-    ========================= */
+      /*
+       * Primeiro fazemos a animação do envelope.
+       */
 
-    videoReveal.addEventListener(
+      envelope.classList.add("opened");
+
+
+      /*
+       * Depois mostramos o MESMO vídeo.
+       */
+
+      setTimeout(function() {
+
+        video.classList.add("show");
+
+      }, 650);
+
+
+      /*
+       * Quando o vídeo terminar,
+       * ele não será reproduzido novamente.
+       *
+       * O próprio elemento de vídeo é movido
+       * para dentro do convite.
+       */
+
+      video.addEventListener(
         "ended",
         finalizarAbertura,
         { once: true }
-    );
+      );
 
 
-    /* =========================
-       FINALIZAÇÃO
-    ========================= */
+      function finalizarAbertura() {
 
-    function finalizarAbertura() {
+        /*
+         * Esconde a tela de abertura.
+         */
 
-        envelopeArea.classList.add(
-            "video-finished"
-        );
+        video.classList.remove("show");
 
 
-        setTimeout(() => {
+        /*
+         * Pequeno intervalo para a transição
+         * ficar suave.
+         */
 
-            abertura.style.display = "none";
-
-            convite.style.display = "block";
-
-            window.scrollTo({
-                top: 0,
-                behavior: "instant"
-            });
+        setTimeout(function() {
 
 
-            /*
-               O vídeo da página normal
-               continua disponível para assistir.
-            */
+          /*
+           * Move o MESMO vídeo para a página.
+           *
+           * Assim não existe segundo vídeo.
+           */
 
-            videoHelena.currentTime = 0;
+          videoContainer.appendChild(video);
 
-        }, 650);
+
+          /*
+           * Deixa o vídeo adequado dentro
+           * do convite.
+           */
+
+          video.removeAttribute("controls");
+
+          video.controls = true;
+
+          video.style.position = "relative";
+          video.style.left = "auto";
+          video.style.top = "auto";
+          video.style.transform = "none";
+          video.style.width = "100%";
+          video.style.maxHeight = "none";
+          video.style.borderRadius = "14px";
+          video.style.opacity = "1";
+          video.style.visibility = "visible";
+          video.style.boxShadow = "none";
+          video.classList.remove("show");
+
+
+          /*
+           * Mostra o convite.
+           */
+
+          invite.classList.add("visible");
+
+
+          /*
+           * Retira a tela de abertura.
+           */
+
+          opening.classList.add("hidden");
+
+
+          /*
+           * Libera o scroll.
+           */
+
+          document.body.style.overflow = "auto";
+
+
+        }, 700);
+
+      }
 
     }
 
-}
 
-</script>
+    /*
+     * Enquanto o convite ainda está fechado,
+     * não permitimos rolar a página.
+     */
+
+    document.body.style.overflow = "hidden";
+
+  </script>
 
 </body>
 </html>
