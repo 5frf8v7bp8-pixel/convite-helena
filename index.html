@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -376,11 +375,6 @@ body {
         scale(.5);
 }
 
-/*
-   O cartão sobe para revelar
-   a surpresa que estava dentro.
-*/
-
 .envelope.open .envelope-card {
     transform:
         translateY(-85px)
@@ -389,11 +383,6 @@ body {
     opacity: 0;
 }
 
-/*
-   Depois que o envelope abriu,
-   o vídeo aparece no mesmo espaço.
-*/
-
 .envelope-area.reveal-video .video-reveal {
     opacity: 1;
 
@@ -401,12 +390,6 @@ body {
         translate(-50%, -50%)
         scale(1);
 }
-
-/*
-   O envelope desaparece suavemente,
-   mas o vídeo continua ocupando
-   a abertura.
-*/
 
 .envelope-area.reveal-video .envelope {
     opacity: 0;
@@ -422,11 +405,6 @@ body {
     opacity: 0;
 }
 
-/*
-   Enquanto o vídeo está tocando,
-   a tela continua sendo a abertura.
-*/
-
 .envelope-area.playing-video {
     width: min(430px, 94vw);
 }
@@ -434,11 +412,6 @@ body {
 .envelope-area.playing-video .video-reveal {
     pointer-events: auto;
 }
-
-/*
-   Quando o vídeo termina,
-   ele some suavemente.
-*/
 
 .envelope-area.video-finished .video-reveal {
     opacity: 0;
@@ -1034,17 +1007,15 @@ footer p {
 
 <body>
 
-
-<!-- ==================================================
+<!-- =========================
      ABERTURA
-================================================== -->
+========================= -->
 
 <div id="abertura">
 
     <div
         class="envelope-area"
         id="envelopeArea">
-
 
         <div class="decor strawberry1">
             🍓
@@ -1062,10 +1033,7 @@ footer p {
             🌼
         </div>
 
-
-        <!-- ==========================================
-             VÍDEO ESCONDIDO DENTRO DA ABERTURA
-        =========================================== -->
+        <!-- VÍDEO DA ABERTURA -->
 
         <div class="video-reveal">
 
@@ -1074,8 +1042,7 @@ footer p {
                 <video
                     id="videoReveal"
                     playsinline
-                    preload="metadata"
-                    muted>
+                    preload="metadata">
 
                     <source
                         src="video-helena.mp4.MOV"
@@ -1089,16 +1056,12 @@ footer p {
 
         </div>
 
-
-        <!-- ==========================================
-             ENVELOPE
-        =========================================== -->
+        <!-- ENVELOPE -->
 
         <div
             class="envelope"
             id="envelope"
             onclick="abrirConvite()">
-
 
             <div class="envelope-body">
 
@@ -1120,16 +1083,13 @@ footer p {
 
             </div>
 
-
             <div class="envelope-flap"></div>
-
 
             <div class="seal">
                 🍓
             </div>
 
         </div>
-
 
         <div class="open-text">
 
@@ -1148,12 +1108,11 @@ footer p {
 </div>
 
 
-<!-- ==================================================
+<!-- =========================
      CONVITE
-================================================== -->
+========================= -->
 
 <main id="convite">
-
 
     <!-- HERO -->
 
@@ -1317,7 +1276,6 @@ footer p {
 
         <div class="details-grid">
 
-
             <div class="detail">
 
                 <div class="icon">
@@ -1333,7 +1291,6 @@ footer p {
                 </strong>
 
             </div>
-
 
             <div class="detail">
 
@@ -1453,9 +1410,9 @@ footer p {
 
 <script>
 
-/* ==================================================
+/* =========================
    ABRIR CONVITE
-================================================== */
+========================= */
 
 function abrirConvite() {
 
@@ -1478,10 +1435,7 @@ function abrirConvite() {
         document.getElementById("videoHelena");
 
 
-    /*
-       Impede que o envelope seja
-       clicado novamente durante a animação.
-    */
+    /* Impede clique duplo */
 
     if (
         envelope.classList.contains("open") ||
@@ -1491,19 +1445,16 @@ function abrirConvite() {
     }
 
 
-    /*
-       1.
-       O envelope abre.
-    */
+    /* =========================
+       1. ABRE O ENVELOPE
+    ========================= */
 
     envelope.classList.add("open");
 
 
-    /*
-       2.
-       Espera a aba abrir antes
-       de revelar o vídeo.
-    */
+    /* =========================
+       2. REVELA O VÍDEO
+    ========================= */
 
     setTimeout(() => {
 
@@ -1517,35 +1468,40 @@ function abrirConvite() {
 
 
         /*
-           O vídeo começa silenciosamente.
-           Isso permite autoplay no celular.
+           O usuário acabou de tocar
+           no envelope.
+
+           Por isso tentamos iniciar
+           o vídeo COM ÁUDIO.
         */
 
-        videoReveal.muted = true;
-
+        videoReveal.muted = false;
+        videoReveal.volume = 1;
         videoReveal.currentTime = 0;
+
 
         videoReveal.play().catch(() => {
 
             /*
-               Se o navegador bloquear
-               o autoplay, o vídeo continua
-               disponível para tocar.
+               Alguns navegadores ainda podem
+               bloquear o áudio.
+
+               Se isso acontecer, o vídeo
+               começa silenciosamente.
             */
+
+            videoReveal.muted = true;
+
+            videoReveal.play().catch(() => {});
 
         });
 
     }, 800);
 
 
-    /*
-       3.
-       IMPORTANTE:
-       não existe mais tempo fixo
-       para esconder a abertura.
-
-       O site espera o vídeo terminar.
-    */
+    /* =========================
+       3. ESPERA O VÍDEO TERMINAR
+    ========================= */
 
     videoReveal.addEventListener(
         "ended",
@@ -1554,21 +1510,16 @@ function abrirConvite() {
     );
 
 
-    function finalizarAbertura() {
+    /* =========================
+       FINALIZAÇÃO
+    ========================= */
 
-        /*
-           Pequena transição no final.
-        */
+    function finalizarAbertura() {
 
         envelopeArea.classList.add(
             "video-finished"
         );
 
-
-        /*
-           Dá tempo para o vídeo
-           desaparecer suavemente.
-        */
 
         setTimeout(() => {
 
@@ -1583,8 +1534,8 @@ function abrirConvite() {
 
 
             /*
-               Deixa o vídeo da seção normal
-               pronto para ser assistido novamente.
+               O vídeo da página normal
+               continua disponível para assistir.
             */
 
             videoHelena.currentTime = 0;
