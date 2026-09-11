@@ -64,6 +64,41 @@ body {
     position: relative;
 }
 
+/* =========================
+   VÍDEO ESCONDIDO ATRÁS
+========================= */
+
+.video-reveal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 88%;
+    transform: translate(-50%, -50%) scale(.82);
+    opacity: 0;
+    z-index: 1;
+    transition:
+        opacity .8s ease,
+        transform 1s cubic-bezier(.22,.61,.36,1);
+    pointer-events: none;
+}
+
+.video-reveal-frame {
+    padding: 8px;
+    background: var(--creme);
+    border-radius: 5px;
+    box-shadow: 0 18px 40px rgba(112,71,71,.2);
+}
+
+.video-reveal video {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
 .envelope {
     position: relative;
     width: 100%;
@@ -71,9 +106,8 @@ body {
     cursor: pointer;
     perspective: 1000px;
     filter: drop-shadow(0 20px 30px rgba(112,71,71,.18));
+    z-index: 3;
 }
-
-/* corpo */
 
 .envelope-body {
     position: absolute;
@@ -87,8 +121,6 @@ body {
     overflow: hidden;
 }
 
-/* textura delicada */
-
 .envelope-body::after {
     content: "";
     position: absolute;
@@ -99,7 +131,7 @@ body {
     background-size: 13px 13px;
 }
 
-/* papel interno */
+/* cartão */
 
 .envelope-card {
     position: absolute;
@@ -113,6 +145,9 @@ body {
     padding: 25px 18px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(112,71,71,.12);
+    transition:
+        transform 1s cubic-bezier(.22,.61,.36,1),
+        opacity .7s ease;
 }
 
 .envelope-card small {
@@ -212,12 +247,11 @@ body {
     font-size: 25px;
 }
 
-/* texto */
-
 .open-text {
     text-align: center;
     margin-top: 25px;
     color: var(--marrom);
+    transition: opacity .4s ease;
 }
 
 .open-text strong {
@@ -232,16 +266,53 @@ body {
     opacity: .7;
 }
 
-/* animação abertura */
+/* =========================
+   ANIMAÇÃO NOVA
+========================= */
+
+/* abre a aba */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
 }
 
+/* selo desaparece */
+
 .envelope.open .seal {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.5);
 }
+
+/* cartão sobe, como se revelasse o conteúdo */
+
+.envelope.open .envelope-card {
+    transform: translateY(-85px) scale(.96);
+    opacity: 0;
+}
+
+/* vídeo começa a aparecer */
+
+.envelope-area.reveal-video .video-reveal {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* envelope perde a presença visual */
+
+.envelope-area.reveal-video .envelope {
+    opacity: 0;
+    transform: translateY(45px) scale(.92);
+    transition:
+        opacity .65s ease,
+        transform .8s ease;
+}
+
+/* texto some */
+
+.envelope-area.reveal-video .open-text {
+    opacity: 0;
+}
+
 
 /* =========================
    CONVITE
@@ -270,7 +341,9 @@ section {
     margin: auto;
 }
 
-/* topo */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 55vh;
@@ -334,7 +407,7 @@ section {
     opacity: .8;
 }
 
-/* linha decorativa */
+/* divisor */
 
 .divider {
     display: flex;
@@ -451,7 +524,7 @@ section {
 }
 
 /* =========================
-   HISTÓRIA
+   MENSAGEM
 ========================= */
 
 .message {
@@ -655,6 +728,10 @@ footer p {
         font-size: 43px;
     }
 
+    .video-reveal {
+        width: 92%;
+    }
+
     .hero {
         min-height: 60vh;
     }
@@ -673,20 +750,50 @@ footer p {
 
 <body>
 
-<!-- =========================
+
+<!-- ==================================================
      ABERTURA
-========================= -->
+================================================== -->
 
 <div id="abertura">
 
-    <div class="envelope-area">
+    <div class="envelope-area" id="envelopeArea">
 
         <div class="decor strawberry1">🍓</div>
         <div class="decor strawberry2">🍓</div>
         <div class="decor flower1">🌸</div>
         <div class="decor flower2">🌼</div>
 
-        <div class="envelope" id="envelope" onclick="abrirConvite()">
+
+        <!-- VÍDEO QUE SERÁ REVELADO PELO ENVELOPE -->
+
+        <div class="video-reveal">
+
+            <div class="video-reveal-frame">
+
+                <video
+                    id="videoReveal"
+                    playsinline
+                    preload="metadata"
+                    muted>
+
+                    <source
+                        src="video-helena.mp4.MOV"
+                        type="video/quicktime">
+
+                </video>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENVELOPE -->
+
+        <div
+            class="envelope"
+            id="envelope"
+            onclick="abrirConvite()">
 
             <div class="envelope-body">
 
@@ -702,13 +809,16 @@ footer p {
 
             </div>
 
+
             <div class="envelope-flap"></div>
+
 
             <div class="seal">
                 🍓
             </div>
 
         </div>
+
 
         <div class="open-text">
 
@@ -723,11 +833,12 @@ footer p {
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      CONVITE
-========================= -->
+================================================== -->
 
 <main id="convite">
+
 
     <!-- HERO -->
 
@@ -741,7 +852,9 @@ footer p {
 
             <h2>Helena</h2>
 
-            <h3>está completando seu primeiro aninho</h3>
+            <h3>
+                está completando seu primeiro aninho
+            </h3>
 
             <div class="divider">
                 <span>🍓</span>
@@ -1009,11 +1122,60 @@ footer p {
 function abrirConvite() {
 
     const envelope = document.getElementById("envelope");
+    const envelopeArea = document.getElementById("envelopeArea");
     const abertura = document.getElementById("abertura");
     const convite = document.getElementById("convite");
-    const video = document.getElementById("videoHelena");
+
+    const videoReveal =
+        document.getElementById("videoReveal");
+
+    const videoHelena =
+        document.getElementById("videoHelena");
+
+
+    /* evita clicar duas vezes */
+
+    if (envelope.classList.contains("open")) {
+        return;
+    }
+
+
+    /* 1 — envelope abre */
 
     envelope.classList.add("open");
+
+
+    /*
+       2 — depois que a aba abre,
+       o conteúdo começa a sair do envelope
+    */
+
+    setTimeout(() => {
+
+        envelopeArea.classList.add("reveal-video");
+
+        /*
+           começa o vídeo da surpresa
+           silenciosamente para permitir autoplay
+        */
+
+        videoReveal.muted = true;
+
+        videoReveal.play().catch(() => {
+            /*
+               Alguns navegadores podem bloquear
+               o autoplay. Nesse caso o vídeo
+               continua disponível para toque.
+            */
+        });
+
+    }, 650);
+
+
+    /*
+       3 — depois da revelação,
+       entra o convite completo
+    */
 
     setTimeout(() => {
 
@@ -1023,22 +1185,20 @@ function abrirConvite() {
 
         window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: "instant"
         });
+
 
         /*
-        Tenta iniciar o vídeo automaticamente.
-        Como o navegador pode bloquear autoplay
-        com som, ele começa silencioso quando possível.
+           O vídeo principal continua sendo
+           o mesmo arquivo, agora dentro
+           do convite.
         */
 
-        video.muted = true;
+        videoHelena.currentTime = 0;
 
-        video.play().catch(() => {
-            // Se o navegador bloquear, o usuário pode apertar play.
-        });
+    }, 2600);
 
-    }, 1100);
 }
 
 </script>
