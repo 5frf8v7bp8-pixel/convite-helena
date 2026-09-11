@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -65,7 +66,7 @@ body {
 }
 
 /* =========================
-   VÍDEO ESCONDIDO ATRÁS
+   VÍDEO DA ABERTURA
 ========================= */
 
 .video-reveal {
@@ -73,12 +74,17 @@ body {
     left: 50%;
     top: 50%;
     width: 88%;
+
     transform: translate(-50%, -50%) scale(.82);
+
     opacity: 0;
+
     z-index: 1;
+
     transition:
         opacity .8s ease,
         transform 1s cubic-bezier(.22,.61,.36,1);
+
     pointer-events: none;
 }
 
@@ -103,31 +109,53 @@ body {
     position: relative;
     width: 100%;
     height: 270px;
+
     cursor: pointer;
+
     perspective: 1000px;
-    filter: drop-shadow(0 20px 30px rgba(112,71,71,.18));
+
+    filter:
+        drop-shadow(
+            0 20px 30px rgba(112,71,71,.18)
+        );
+
     z-index: 3;
+
+    transition:
+        opacity .7s ease,
+        transform .8s ease;
 }
 
 .envelope-body {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        145deg,
-        #eaa5a4,
-        #d9868b
-    );
+
+    background:
+        linear-gradient(
+            145deg,
+            #eaa5a4,
+            #d9868b
+        );
+
     border-radius: 8px;
+
     overflow: hidden;
 }
 
 .envelope-body::after {
     content: "";
+
     position: absolute;
     inset: 0;
+
     opacity: .15;
+
     background-image:
-        radial-gradient(#fff 1px, transparent 1px);
+        radial-gradient(
+            #fff 1px,
+            transparent 1px
+        );
+
     background-size: 13px 13px;
 }
 
@@ -135,16 +163,26 @@ body {
 
 .envelope-card {
     position: absolute;
+
     left: 8%;
     right: 8%;
     bottom: 25px;
+
     height: 205px;
+
     background: var(--creme);
+
     border-radius: 5px;
+
     z-index: 2;
+
     padding: 25px 18px;
+
     text-align: center;
-    box-shadow: 0 5px 15px rgba(112,71,71,.12);
+
+    box-shadow:
+        0 5px 15px rgba(112,71,71,.12);
+
     transition:
         transform 1s cubic-bezier(.22,.61,.36,1),
         opacity .7s ease;
@@ -152,22 +190,31 @@ body {
 
 .envelope-card small {
     font-size: 11px;
+
     letter-spacing: 3px;
+
     text-transform: uppercase;
+
     color: var(--vermelho);
 }
 
 .envelope-card h1 {
     font-family: "Parisienne", cursive;
+
     font-size: 48px;
+
     line-height: 1;
+
     color: var(--vermelho);
+
     margin: 12px 0 5px;
 }
 
 .envelope-card p {
     font-family: "Playfair Display", serif;
+
     font-size: 18px;
+
     color: var(--marrom);
 }
 
@@ -175,16 +222,30 @@ body {
 
 .envelope-flap {
     position: absolute;
+
     inset: 0;
+
     height: 58%;
-    background: linear-gradient(
-        145deg,
-        #f2b4b1,
-        #e39497
-    );
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f2b4b1,
+            #e39497
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
     transform-origin: top;
-    transition: transform 1s cubic-bezier(.65,.05,.36,1);
+
+    transition:
+        transform 1s cubic-bezier(.65,.05,.36,1);
+
     z-index: 5;
 }
 
@@ -192,127 +253,200 @@ body {
 
 .seal {
     position: absolute;
+
     left: 50%;
     top: 47%;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%, -50%);
+
     width: 65px;
     height: 65px;
+
     border-radius: 50%;
+
     background: var(--vermelho);
+
     border: 5px solid var(--creme);
-    box-shadow: 0 4px 10px rgba(112,71,71,.2);
+
+    box-shadow:
+        0 4px 10px rgba(112,71,71,.2);
+
     z-index: 7;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 30px;
+
     transition: .5s;
 }
 
 .envelope:hover .seal {
-    transform: translate(-50%, -50%) scale(1.06);
+    transform:
+        translate(-50%, -50%)
+        scale(1.06);
 }
 
 /* decoração */
 
 .decor {
     position: absolute;
+
     z-index: 10;
+
     user-select: none;
 }
 
 .decor.strawberry1 {
     left: -20px;
     top: -22px;
+
     font-size: 38px;
+
     transform: rotate(-15deg);
 }
 
 .decor.strawberry2 {
     right: -18px;
     bottom: -15px;
+
     font-size: 32px;
+
     transform: rotate(15deg);
 }
 
 .decor.flower1 {
     right: -25px;
     top: 35px;
+
     font-size: 28px;
 }
 
 .decor.flower2 {
     left: -22px;
     bottom: 40px;
+
     font-size: 25px;
 }
 
+/* texto */
+
 .open-text {
     text-align: center;
+
     margin-top: 25px;
+
     color: var(--marrom);
-    transition: opacity .4s ease;
+
+    transition:
+        opacity .4s ease;
 }
 
 .open-text strong {
     display: block;
+
     font-family: "Playfair Display", serif;
+
     font-size: 18px;
+
     margin-bottom: 4px;
 }
 
 .open-text span {
     font-size: 13px;
+
     opacity: .7;
 }
 
 /* =========================
-   ANIMAÇÃO NOVA
+   ABERTURA DO ENVELOPE
 ========================= */
-
-/* abre a aba */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
 }
 
-/* selo desaparece */
-
 .envelope.open .seal {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.5);
+
+    transform:
+        translate(-50%, -50%)
+        scale(.5);
 }
 
-/* cartão sobe, como se revelasse o conteúdo */
+/*
+   O cartão sobe para revelar
+   a surpresa que estava dentro.
+*/
 
 .envelope.open .envelope-card {
-    transform: translateY(-85px) scale(.96);
+    transform:
+        translateY(-85px)
+        scale(.96);
+
     opacity: 0;
 }
 
-/* vídeo começa a aparecer */
+/*
+   Depois que o envelope abriu,
+   o vídeo aparece no mesmo espaço.
+*/
 
 .envelope-area.reveal-video .video-reveal {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
 }
 
-/* envelope perde a presença visual */
+/*
+   O envelope desaparece suavemente,
+   mas o vídeo continua ocupando
+   a abertura.
+*/
 
 .envelope-area.reveal-video .envelope {
     opacity: 0;
-    transform: translateY(45px) scale(.92);
-    transition:
-        opacity .65s ease,
-        transform .8s ease;
-}
 
-/* texto some */
+    transform:
+        translateY(45px)
+        scale(.92);
+
+    pointer-events: none;
+}
 
 .envelope-area.reveal-video .open-text {
     opacity: 0;
 }
 
+/*
+   Enquanto o vídeo está tocando,
+   a tela continua sendo a abertura.
+*/
+
+.envelope-area.playing-video {
+    width: min(430px, 94vw);
+}
+
+.envelope-area.playing-video .video-reveal {
+    pointer-events: auto;
+}
+
+/*
+   Quando o vídeo termina,
+   ele some suavemente.
+*/
+
+.envelope-area.video-finished .video-reveal {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.96);
+}
 
 /* =========================
    CONVITE
@@ -320,10 +454,13 @@ body {
 
 #convite {
     display: none;
-    animation: aparecer 1s ease;
+
+    animation:
+        aparecer 1s ease;
 }
 
 @keyframes aparecer {
+
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -333,11 +470,14 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 section {
     padding: 70px 20px;
+
     max-width: 900px;
+
     margin: auto;
 }
 
@@ -347,29 +487,43 @@ section {
 
 .hero {
     min-height: 55vh;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     text-align: center;
+
     position: relative;
+
     overflow: hidden;
+
     padding-top: 80px;
 }
 
 .hero::before {
     content: "🍓";
+
     position: absolute;
+
     left: 8%;
     top: 25%;
+
     font-size: 30px;
+
     transform: rotate(-15deg);
 }
 
 .hero::after {
     content: "🌸";
+
     position: absolute;
+
     right: 8%;
     top: 20%;
+
     font-size: 28px;
 }
 
@@ -379,31 +533,55 @@ section {
 
 .eyebrow {
     color: var(--vermelho);
+
     text-transform: uppercase;
+
     letter-spacing: 4px;
+
     font-size: 11px;
+
     margin-bottom: 10px;
 }
 
 .hero h2 {
     font-family: "Parisienne", cursive;
-    font-size: clamp(55px, 15vw, 90px);
+
+    font-size:
+        clamp(
+            55px,
+            15vw,
+            90px
+        );
+
     line-height: .95;
+
     color: var(--vermelho);
+
     font-weight: 400;
 }
 
 .hero h3 {
     font-family: "Playfair Display", serif;
-    font-size: clamp(23px, 6vw, 34px);
+
+    font-size:
+        clamp(
+            23px,
+            6vw,
+            34px
+        );
+
     margin-top: 8px;
+
     font-weight: 600;
 }
 
 .hero p {
     margin-top: 18px;
+
     font-size: 15px;
+
     line-height: 1.7;
+
     opacity: .8;
 }
 
@@ -411,17 +589,24 @@ section {
 
 .divider {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 12px;
+
     margin: 20px auto;
 }
 
 .divider::before,
 .divider::after {
     content: "";
+
     width: 55px;
+
     height: 1px;
+
     background: var(--rosa);
 }
 
@@ -435,40 +620,57 @@ section {
 
 .video-section {
     background: var(--rosa-suave);
+
     max-width: none;
 }
 
 .video-inner {
     max-width: 760px;
+
     margin: auto;
+
     text-align: center;
 }
 
 .section-title {
     font-family: "Playfair Display", serif;
+
     font-size: 28px;
+
     color: var(--marrom);
 }
 
 .section-subtitle {
     font-size: 14px;
+
     margin-top: 8px;
+
     opacity: .7;
 }
 
 .video-frame {
     margin: 30px auto 0;
+
     max-width: 430px;
+
     padding: 9px;
+
     background: var(--creme);
-    border: 1px solid rgba(112,71,71,.12);
-    box-shadow: 0 15px 35px rgba(112,71,71,.15);
+
+    border:
+        1px solid rgba(112,71,71,.12);
+
+    box-shadow:
+        0 15px 35px rgba(112,71,71,.15);
+
     border-radius: 5px;
 }
 
 .video-frame video {
     width: 100%;
+
     display: block;
+
     border-radius: 2px;
 }
 
@@ -482,18 +684,27 @@ section {
 
 .photo-placeholder {
     margin: 30px auto 0;
+
     max-width: 650px;
+
     min-height: 270px;
+
     padding: 45px 25px;
-    border: 1px dashed var(--rosa);
+
+    border:
+        1px dashed var(--rosa);
+
     background: var(--creme2);
+
     position: relative;
 }
 
 .photo-placeholder::before,
 .photo-placeholder::after {
     content: "🍓";
+
     position: absolute;
+
     font-size: 25px;
 }
 
@@ -509,17 +720,21 @@ section {
 
 .photo-placeholder .camera {
     font-size: 38px;
+
     margin-bottom: 12px;
 }
 
 .photo-placeholder h4 {
     font-family: "Playfair Display", serif;
+
     font-size: 21px;
+
     margin-bottom: 8px;
 }
 
 .photo-placeholder p {
     font-size: 13px;
+
     opacity: .65;
 }
 
@@ -529,32 +744,45 @@ section {
 
 .message {
     background: var(--creme2);
+
     max-width: none;
 }
 
 .message-inner {
     max-width: 700px;
+
     margin: auto;
+
     text-align: center;
 }
 
 .message-card {
     margin-top: 25px;
-    background: rgba(255,255,255,.55);
+
+    background:
+        rgba(255,255,255,.55);
+
     padding: 35px 25px;
-    border: 1px solid rgba(185,78,85,.12);
+
+    border:
+        1px solid rgba(185,78,85,.12);
 }
 
 .message-card p {
     font-family: "Playfair Display", serif;
+
     font-size: 18px;
+
     line-height: 1.8;
 }
 
 .signature {
     margin-top: 18px;
+
     font-family: "Parisienne", cursive;
+
     color: var(--vermelho);
+
     font-size: 35px;
 }
 
@@ -568,35 +796,51 @@ section {
 
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 18px;
+
     max-width: 620px;
+
     margin: 35px auto 0;
 }
 
 .detail {
     background: var(--creme2);
+
     padding: 25px 15px;
-    border-top: 3px solid var(--rosa);
+
+    border-top:
+        3px solid var(--rosa);
 }
 
 .detail .icon {
     font-size: 25px;
+
     margin-bottom: 8px;
 }
 
 .detail small {
     display: block;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     font-size: 10px;
+
     color: var(--vermelho);
 }
 
 .detail strong {
     display: block;
+
     font-family: "Playfair Display", serif;
+
     font-size: 18px;
+
     margin-top: 6px;
 }
 
@@ -606,20 +850,27 @@ section {
 
 .location {
     background: var(--rosa-suave);
+
     max-width: none;
+
     text-align: center;
 }
 
 .location-inner {
     max-width: 650px;
+
     margin: auto;
 }
 
 .location-box {
     margin-top: 28px;
+
     background: var(--creme);
+
     padding: 32px 22px;
-    border: 1px solid rgba(112,71,71,.1);
+
+    border:
+        1px solid rgba(112,71,71,.1);
 }
 
 .location-box .icon {
@@ -628,34 +879,49 @@ section {
 
 .location-box h4 {
     font-family: "Playfair Display", serif;
+
     font-size: 22px;
+
     margin: 10px 0 5px;
 }
 
 .location-box p {
     font-size: 14px;
+
     line-height: 1.6;
+
     opacity: .7;
 }
 
 .map-button,
 .confirm-button {
     display: inline-block;
+
     margin-top: 20px;
+
     padding: 13px 25px;
+
     border-radius: 30px;
+
     background: var(--vermelho);
+
     color: white;
+
     text-decoration: none;
+
     font-size: 13px;
+
     font-weight: 600;
+
     transition: .25s;
 }
 
 .map-button:hover,
 .confirm-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 7px 15px rgba(185,78,85,.25);
+
+    box-shadow:
+        0 7px 15px rgba(185,78,85,.25);
 }
 
 /* =========================
@@ -664,26 +930,36 @@ section {
 
 .confirm {
     text-align: center;
+
     position: relative;
 }
 
 .confirm-card {
     max-width: 650px;
+
     margin: auto;
+
     padding: 45px 25px;
+
     background: var(--creme2);
-    border: 1px solid rgba(112,71,71,.1);
+
+    border:
+        1px solid rgba(112,71,71,.1);
 }
 
 .confirm-card h3 {
     font-family: "Playfair Display", serif;
+
     font-size: 27px;
 }
 
 .confirm-card p {
     margin-top: 10px;
+
     font-size: 14px;
+
     line-height: 1.7;
+
     opacity: .75;
 }
 
@@ -693,19 +969,25 @@ section {
 
 footer {
     text-align: center;
+
     padding: 35px 20px 45px;
+
     background: var(--vermelho);
+
     color: white;
 }
 
 footer .footer-title {
     font-family: "Parisienne", cursive;
+
     font-size: 35px;
 }
 
 footer p {
     font-size: 11px;
+
     margin-top: 5px;
+
     opacity: .85;
 }
 
@@ -721,6 +1003,7 @@ footer p {
 
     .envelope-card {
         height: 185px;
+
         bottom: 20px;
     }
 
@@ -743,6 +1026,7 @@ footer p {
     section {
         padding: 60px 18px;
     }
+
 }
 
 </style>
@@ -757,15 +1041,31 @@ footer p {
 
 <div id="abertura">
 
-    <div class="envelope-area" id="envelopeArea">
-
-        <div class="decor strawberry1">🍓</div>
-        <div class="decor strawberry2">🍓</div>
-        <div class="decor flower1">🌸</div>
-        <div class="decor flower2">🌼</div>
+    <div
+        class="envelope-area"
+        id="envelopeArea">
 
 
-        <!-- VÍDEO QUE SERÁ REVELADO PELO ENVELOPE -->
+        <div class="decor strawberry1">
+            🍓
+        </div>
+
+        <div class="decor strawberry2">
+            🍓
+        </div>
+
+        <div class="decor flower1">
+            🌸
+        </div>
+
+        <div class="decor flower2">
+            🌼
+        </div>
+
+
+        <!-- ==========================================
+             VÍDEO ESCONDIDO DENTRO DA ABERTURA
+        =========================================== -->
 
         <div class="video-reveal">
 
@@ -781,6 +1081,8 @@ footer p {
                         src="video-helena.mp4.MOV"
                         type="video/quicktime">
 
+                    Seu navegador não conseguiu carregar o vídeo.
+
                 </video>
 
             </div>
@@ -788,22 +1090,31 @@ footer p {
         </div>
 
 
-        <!-- ENVELOPE -->
+        <!-- ==========================================
+             ENVELOPE
+        =========================================== -->
 
         <div
             class="envelope"
             id="envelope"
             onclick="abrirConvite()">
 
+
             <div class="envelope-body">
 
                 <div class="envelope-card">
 
-                    <small>Um convite especial</small>
+                    <small>
+                        Um convite especial
+                    </small>
 
-                    <h1>1 aninho</h1>
+                    <h1>
+                        1 aninho
+                    </h1>
 
-                    <p>da Helena 🍓</p>
+                    <p>
+                        da Helena 🍓
+                    </p>
 
                 </div>
 
@@ -822,9 +1133,13 @@ footer p {
 
         <div class="open-text">
 
-            <strong>Você recebeu um convite!</strong>
+            <strong>
+                Você recebeu um convite!
+            </strong>
 
-            <span>Toque no envelope para abrir</span>
+            <span>
+                Toque no envelope para abrir
+            </span>
 
         </div>
 
@@ -850,7 +1165,9 @@ footer p {
                 Um dia muito especial
             </div>
 
-            <h2>Helena</h2>
+            <h2>
+                Helena
+            </h2>
 
             <h3>
                 está completando seu primeiro aninho
@@ -925,7 +1242,9 @@ footer p {
 
         <div class="photo-placeholder">
 
-            <div class="camera">📸</div>
+            <div class="camera">
+                📸
+            </div>
 
             <h4>
                 Aqui entrarão as fotos da Helena
@@ -958,15 +1277,19 @@ footer p {
             <div class="message-card">
 
                 <p>
+
                     Há um ano, nossa família ganhou um motivo
                     ainda maior para sorrir, amar e agradecer.
+
                     <br><br>
 
                     Agora queremos comemorar esse momento
                     tão especial ao lado de pessoas queridas.
+
                     <br><br>
 
                     Será uma alegria ter você conosco! 🍓
+
                 </p>
 
                 <div class="signature">
@@ -994,11 +1317,16 @@ footer p {
 
         <div class="details-grid">
 
+
             <div class="detail">
 
-                <div class="icon">📅</div>
+                <div class="icon">
+                    📅
+                </div>
 
-                <small>Data</small>
+                <small>
+                    Data
+                </small>
 
                 <strong>
                     Em breve
@@ -1009,9 +1337,13 @@ footer p {
 
             <div class="detail">
 
-                <div class="icon">🕐</div>
+                <div class="icon">
+                    🕐
+                </div>
 
-                <small>Horário</small>
+                <small>
+                    Horário
+                </small>
 
                 <strong>
                     Em breve
@@ -1040,7 +1372,9 @@ footer p {
 
             <div class="location-box">
 
-                <div class="icon">📍</div>
+                <div class="icon">
+                    📍
+                </div>
 
                 <h4>
                     Local do aniversário
@@ -1119,12 +1453,23 @@ footer p {
 
 <script>
 
+/* ==================================================
+   ABRIR CONVITE
+================================================== */
+
 function abrirConvite() {
 
-    const envelope = document.getElementById("envelope");
-    const envelopeArea = document.getElementById("envelopeArea");
-    const abertura = document.getElementById("abertura");
-    const convite = document.getElementById("convite");
+    const envelope =
+        document.getElementById("envelope");
+
+    const envelopeArea =
+        document.getElementById("envelopeArea");
+
+    const abertura =
+        document.getElementById("abertura");
+
+    const convite =
+        document.getElementById("convite");
 
     const videoReveal =
         document.getElementById("videoReveal");
@@ -1133,71 +1478,120 @@ function abrirConvite() {
         document.getElementById("videoHelena");
 
 
-    /* evita clicar duas vezes */
+    /*
+       Impede que o envelope seja
+       clicado novamente durante a animação.
+    */
 
-    if (envelope.classList.contains("open")) {
+    if (
+        envelope.classList.contains("open") ||
+        envelopeArea.classList.contains("reveal-video")
+    ) {
         return;
     }
 
 
-    /* 1 — envelope abre */
+    /*
+       1.
+       O envelope abre.
+    */
 
     envelope.classList.add("open");
 
 
     /*
-       2 — depois que a aba abre,
-       o conteúdo começa a sair do envelope
+       2.
+       Espera a aba abrir antes
+       de revelar o vídeo.
     */
 
     setTimeout(() => {
 
-        envelopeArea.classList.add("reveal-video");
+        envelopeArea.classList.add(
+            "reveal-video"
+        );
+
+        envelopeArea.classList.add(
+            "playing-video"
+        );
+
 
         /*
-           começa o vídeo da surpresa
-           silenciosamente para permitir autoplay
+           O vídeo começa silenciosamente.
+           Isso permite autoplay no celular.
         */
 
         videoReveal.muted = true;
 
+        videoReveal.currentTime = 0;
+
         videoReveal.play().catch(() => {
+
             /*
-               Alguns navegadores podem bloquear
-               o autoplay. Nesse caso o vídeo
-               continua disponível para toque.
+               Se o navegador bloquear
+               o autoplay, o vídeo continua
+               disponível para tocar.
             */
+
         });
 
-    }, 650);
+    }, 800);
 
 
     /*
-       3 — depois da revelação,
-       entra o convite completo
+       3.
+       IMPORTANTE:
+       não existe mais tempo fixo
+       para esconder a abertura.
+
+       O site espera o vídeo terminar.
     */
 
-    setTimeout(() => {
+    videoReveal.addEventListener(
+        "ended",
+        finalizarAbertura,
+        { once: true }
+    );
 
-        abertura.style.display = "none";
 
-        convite.style.display = "block";
+    function finalizarAbertura() {
 
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
-        });
+        /*
+           Pequena transição no final.
+        */
+
+        envelopeArea.classList.add(
+            "video-finished"
+        );
 
 
         /*
-           O vídeo principal continua sendo
-           o mesmo arquivo, agora dentro
-           do convite.
+           Dá tempo para o vídeo
+           desaparecer suavemente.
         */
 
-        videoHelena.currentTime = 0;
+        setTimeout(() => {
 
-    }, 2600);
+            abertura.style.display = "none";
+
+            convite.style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "instant"
+            });
+
+
+            /*
+               Deixa o vídeo da seção normal
+               pronto para ser assistido novamente.
+            */
+
+            videoHelena.currentTime = 0;
+
+        }, 650);
+
+    }
 
 }
 
